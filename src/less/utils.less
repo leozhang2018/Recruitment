@@ -1,0 +1,105 @@
+/*
+ * @file global variables & mixins
+ * @author leozhang2018 <leozhang2018@gmail.com>
+ */
+//背景
+@bg-color: #fff;
+//标题
+@title-color: #333333;
+//内容
+@content-color: #666666;
+//主题
+@theme-color: #fa647d;
+
+// PC 端不做自适应了，都是 1060 吧
+@content-width-small: 1060px;
+@content-width-middle: 1060px;
+@content-width-large: 1060px;
+
+@phone: ~"only screen and (max-width: 767px)";
+@middle: ~"only screen and (min-width: 1140px) and (max-width: 1440px)";
+@large: ~"only screen and (min-width: 1440px)";
+
+.content() {
+  position: relative;
+  width: @content-width-small;
+  margin: 0 auto;
+  // background-color: blue;
+  // @media @phone {
+  //   box-sizing: border-box;
+  //   width: 100%;
+  //   padding-left: 30px;
+  //   padding-right: 30px;
+  // }
+  //
+  // @media @middle {
+  //   width: @content-width-middle;
+  // }
+  //
+  // @media @large {
+  //   width: @content-width-large;
+  // }
+  // background-color: yellow;
+}
+
+.btn() {
+  @btn-height: 43px;
+
+  display: inline-block;
+  line-height: @btn-height;
+  padding: 0 36px;
+  font-size: 18px;
+  font-weight: normal;
+  border-radius: @btn-height / 2 + 1;
+  border: 1px solid @theme-color;
+  transition: all 0.3s ease;
+}
+
+.white-btn() {
+  .btn();
+  color: @theme-color;
+  background-color: #fff;
+
+  &:hover {
+    color: #fff;
+    background-color: @theme-color;
+  }
+}
+
+.theme-btn() {
+  .btn();
+  color: #fff;
+  background-color: @theme-color;
+
+  &:hover {
+    background-color: #fb748a;
+  }
+}
+
+.placeholder-color(@color) {
+  /*placeHolder*/
+  &::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: @color;
+  }
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: @color;
+  }
+}
+
+.content-width(@ratio) {
+  @width-percent: @ratio * 100;
+  width: unit(@width-percent, %);
+}
+
+.content-width-with-padding(@ratio) {
+  @width-percent: @ratio * 100;
+  @padding-percent: (100 - @width-percent) / 2;
+  padding-left: unit(@padding-percent, %);
+  padding-right: unit(@padding-percent, %);
+}

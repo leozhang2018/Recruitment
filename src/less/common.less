@@ -1,0 +1,223 @@
+/*
+ * @file style for common
+ * @author leozhang2018 <leozhang2018@gmail.com>
+ */
+@import "./utils.less";
+@import "./normalize.css";
+@header-height: 80px;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+body,
+html {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", Arial, Verdana, sans-serif;
+}
+.icon {
+    display: inline-block;
+}
+.hidden,
+iframe {
+    display: none;
+}
+dd,
+dl,
+dt,
+li,
+ol,
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+a,
+a:focus,
+a:hover,
+a:visited {
+    text-decoration: none;
+    outline: 0;
+}
+body {
+    //min-width: 960px;
+    @media @phone {
+        min-width: auto;
+        width: 100%;
+    }
+}
+.g-header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    //min-width: 960px;
+    background-color: #fff;
+    border-bottom: 1px solid #e6e9f0;
+    .g-container {
+        .content()
+    }
+}
+.g-header .logo {
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 45px;
+    height: 30px;
+    background-size: 45px;
+    background-image: url("../img/header/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    // background-color: blue;
+}
+.g-header .title {
+    position: absolute;
+    left: 57px;
+    top: 22px;
+    width: 36px;
+    height: 32px;
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 32px;
+    // background-color: red;
+}
+@login-height: 40px;
+@login-content-height: @login-height - 1px * 2;
+@hover-color: #1989fa;
+.g-header .back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 0;
+    // background-color: blue;
+    .back-homepage-btn {
+        display: inline-block;
+        width: 96px;
+        height: 40px;
+        color: #666666;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: @login-height;
+        text-align: center;
+        border: 1px solid #CCCCCC;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+    .back-homepage-btn:hover {
+        background-color: @hover-color;
+        color: #fff;
+        border: 1px solid @hover-color;
+    }
+}
+.g-header .g-container .nav {
+    line-height: @header-height;
+    text-align: left;
+    margin-left: 180px;
+    font-size: 14px;
+    font-weight: 500;
+    // background-color: blue;
+}
+.g-header .g-container .nav li {
+    display: inline-block;
+}
+.g-header .g-container .nav li .nav-link {
+    box-sizing: border-box;
+    color: #666666;
+    margin: 0 20px;
+    display: inline-block;
+}
+.g-header .g-container .nav li .nav-link:first-child {
+    margin-left: 0;
+}
+.g-footer {
+    padding: 58px 0 60px;
+    overflow: hidden;
+    background-color: #000000;
+}
+.g-footer .g-container {
+    .content();
+    color: #CCCCCC;
+    font-size: 14px;
+}
+.g-footer .g-container .icons-logo {
+    margin-right: 237px;
+    width: 94px;
+    height: 30px;
+    float: left;
+    // background-color: blue;
+}
+
+.g-footer .g-container .icons-logo .f-icon-logo {
+    display: block;
+    width: 93px;
+    height: 30px;
+    background-image: url("../img/footer/logo_footer.png");
+    background-repeat: no-repeat;
+    background-size: 93px 30px;
+}
+.g-footer .g-container .webmap {
+    width: 490px;
+    float: left;
+    overflow: hidden;
+    padding-bottom: 35px;
+    // background-color: white;
+}
+.g-footer .g-container .webmap li {
+    float: left;
+    width: 240px;
+}
+.g-footer .g-container .webmap li dl dt {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+.g-footer .g-container .webmap li dl dd {
+    line-height: 42px;
+}
+.g-footer .g-container .webmap li dl dd a {
+    color: #cccccc;
+}
+.g-footer .g-container .subscribe {
+    margin-right: 100px;
+    width: 120px;
+    float: right;
+    height: 120px;
+    background-color: yellow;
+    background-image: url("../img/footer/qr_code.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.g-footer .g-container .copyright {
+    position: absolute;
+    top: 137px;
+    font-size: 12px;
+    border-top: 1px solid #2a3242;
+    color: #565b66;
+    // background-color: yellow;
+    width: auto;
+}
+.g-footer .g-container .left {
+    float: left;
+}
+.g-footer .g-container .right {
+    float: right;
+}
+.g-footer .g-container .left,
+.g-footer .g-container .right {
+    padding-top: 20px;
+}
+.g-footer .g-container .left a,
+.g-footer .g-container .right a {
+    color: inherit;
+    margin: 0 10px;
+}
+@import "./common-mobile.less";
