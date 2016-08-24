@@ -1,0 +1,152 @@
+/*
+ * @file style for social-index
+ * @author leozhang2018 <leozhang2018@gmail.com>
+ */
+@import "./utils.less";
+.recruiting .title-banner {
+    .content();
+    height: 280px;
+    text-align: left;
+    overflow: visible;
+    position: relative;
+}
+.recruiting .title-banner .banner-content {
+    position: absolute;
+    top: 50%;
+    height: 180px;
+    width: 562px;
+    margin-top: -90px;
+    // background-color: yellow;
+    .banner-title {
+        width: 756px;
+        font-size: 42px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 60px;
+        // background-color: blue;
+    }
+}
+.recruiting .banner {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-color: yellow;
+    background: url("../img/social/Banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1440px 600px;
+    background-size: cover;
+}
+.recruiting .guide {
+    width: 940px;
+    height: 160px;
+    position: absolute;
+    z-index: 888;
+    left: 50%;
+    margin-left: -470px;
+    margin-top: -60px;
+    // background-color: blue;
+    .guide-content {
+        width: 160px;
+        height: 160px;
+        background-color: #1989FA;
+        float: right;
+        .post-text {
+            margin-left: 24px;
+            margin-top: 20px;
+            width: 65px;
+            height: 56px;
+            // background-color: blue;
+            p {
+                font-size: 16px;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                line-height: 28px;
+                // background-color: yellow;
+            }
+        }
+        .arrow {
+            width: 14px;
+            height: 11px;
+            float: right;
+            margin-top: 49px;
+            margin-right: 25px;
+            background-color: blue;
+            background-image: url("");
+            background-size: cover;
+        }
+    }
+}
+
+.recruiting .campus-jobs {
+    .content();
+    height: 383px;
+    padding: 120px 0;
+    .campus-jobs-content {
+        h2 {
+            font-size: 34px;
+            color: #333333;
+            line-height: 43px;
+        }
+        p {
+            font-size: 18px;
+            color: #666666;
+            line-height: 32px;
+            text-align: left;
+            margin: 20px 0;
+        }
+        a {
+            font-size: 16px;
+            color: #1989FA;
+            letter-spacing: 0;
+            line-height: 28px;
+        }
+        .job-list {
+            padding-left: 2.26415094%;
+            padding-right: 2.26415094%;
+            margin-top: 80px;
+            list-style: none;
+            .job-item {
+                float: left;
+                display: inline-block;
+                width: 16.6%;
+                // padding: 29px 0;
+                vertical-align: top;
+                text-align: center;
+            }
+            .job-tech .job-img {
+                background-image: url("../img/campus/tech.jpg");
+            }
+            .job-business .job-img {
+                background-image: url("../img/campus/business.jpg");
+            }
+            .job-product .job-img {
+                background-image: url("../img/campus/product.jpg");
+            }
+            .job-design .job-img {
+                background-image: url("../img/campus/design.jpg");
+            }
+            .job-marketing .job-img {
+                background-image: url("../img/campus/marketing.jpg");
+            }
+            .job-function .job-img {
+                background-image: url("../img/campus/function.jpg");
+            }
+            .job-desc {
+                font-size: 16px;
+                text-align: center;
+                color: #333333;
+                line-height: 28px;
+            }
+            .job-img {
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+                background-size: 80px 80px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: #fff;
+            }
+        }
+    }
+}
