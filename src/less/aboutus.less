@@ -1,0 +1,389 @@
+/*
+ * @file style for social-index
+ * @author leozhang2018 <leozhang2018@gmail.com>
+ */
+@import "./utils.less";
+.recruiting .title-banner {
+    .content();
+    height: 440px;
+    text-align: left;
+    overflow: visible;
+    position: relative;
+    // background-color: blue;
+}
+.recruiting .title-banner .banner-content {
+    position: absolute;
+    top: 50%;
+    height: 240px;
+    width: 700px;
+    margin-top: -90px;
+    // background-color: yellow;
+    .banner-title {
+        width: 700px;
+        font-size: 42px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 60px;
+        // background-color: blue;
+    }
+    .banner-desc {
+        width: 640px;
+        font-size: 18px;
+        color: #666666;
+        letter-spacing: 0;
+        line-height: 32px;
+        margin-top: 20px;
+        // background-color: red;
+    }
+}
+.recruiting .banner {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-color: yellow;
+    // background: url("../img/social/Banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1440px 600px;
+    background-size: cover;
+}
+.recruiting .product-journey {
+    .content();
+    height: 832px;
+    // background-color: yellow;
+    .product-journey-content {
+        height: 592px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        margin-top: -296px;
+        // background-color: blue;
+        .desc {
+            width: 640px;
+            height: 136px;
+            // background-color: red;
+            p {
+                font-size: 22px;
+                color: #666666;
+                letter-spacing: 0;
+                line-height: 30px;
+            }
+            h2 {
+                width: 640px;
+                margin-top: 20px;
+                font-size: 34px;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 43px;
+            }
+        }
+        .list-content() {
+            .time {
+                display: inline-block;
+                width: 93px;
+                font-size: 14px;
+                font-weight:500;
+                color: #333;
+                letter-spacing: 0;
+                line-height: 24px;
+                // background-color: #ff0;
+            }
+            .event {
+                width: 280px;
+                font-size: 14px;
+                color: #666666;
+                letter-spacing: 0;
+                line-height: 24px;
+                float: right;
+                // background-color: blue;
+            }
+        }
+        .timeline {
+            width: 100%;
+            height: 376px;
+            margin-top: 80px;
+            // background-color: green;
+            .container-left {
+                width: 400px;
+                // background-color: red;
+                float: left;
+                .left {
+                    width: 400px;
+                    margin-bottom: 40px;
+                    overflow: hidden;
+                    position: relative;
+                    // background-color: red;
+                    .list-content();
+                }
+                .left:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            .container-right {
+                width: 400px;
+                // background-color: black;
+                margin-left: 50%;
+                .right {
+                    width: 400px;
+                    margin: 40px 0 40px 60px;
+                    overflow: hidden;
+                    position: relative;
+                    // background-color: red;
+                    .list-content();
+                }
+            }
+        }
+    }
+}
+.container-block-content() {
+    width: 530px;
+    height: 110px;
+    // background-color: orange;
+    h2 {
+        display: inline-block;
+        width: 40px;
+        font-size: 62px;
+        color: #333333;
+        letter-spacing: 0;
+        // background-color: blue;
+        line-height: 58px;
+    }
+    p {
+        display: inline-block;
+        font-size: 28px;
+        font-weight: 300;
+        color: #333333;
+        letter-spacing: 0;
+    }
+    dl {
+        top: 0;
+        position: absolute;
+        display: inline-block;
+        margin-left: 44px;
+        // background-color: blue;
+    }
+    dl > dt {
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 24px;
+    }
+    dl > dd {
+        width: 289px;
+        font-size: 14px;
+        color: #666666;
+        letter-spacing: 0;
+        line-height: 24px;
+        margin-top: 10px;
+    }
+}
+.recruiting .capital-journey {
+    position: relative;
+    width: 100%;
+    height: 638px;
+    background-color: #F5F5F5;
+    .capital-journey-content {
+      height: 398px;
+      width: 1060px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -530px;
+      margin-top: -199px;
+      // background-color: blue;
+        .desc {
+            width: 640px;
+            height: 93px;
+            // background-color: yellow;
+            p {
+                font-size: 22px;
+                color: #666666;
+                letter-spacing: 0;
+                line-height: 30px;
+            }
+            h2 {
+                width: 640px;
+                margin-top: 20px;
+                font-size: 34px;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 43px;
+            }
+        }
+        .timeline {
+            height: 220px;
+            width: 100%;
+            margin-top: 85px;
+            // background-color: black;
+            .container-left {
+                width: 400px;
+                // background-color: red;
+                float: left;
+                .container-block {
+                    position: relative;
+                    .container-block-content();
+                }
+            }
+            .container-right {
+                width: 400px;
+                // background-color: green;
+                margin-left: 50%;
+                .container-block {
+                    position: relative;
+                    .container-block-content();
+                }
+            }
+        }
+    }
+}
+.recruiting .wish {
+    .content();
+    height: 333px;
+    // background-color: yellow;
+    position: relative;
+    .desc {
+        position: absolute;
+        top: 50%;
+        margin-top: -46.5px;
+        width: 816px;
+        height: 93px;
+        // background-color: yellow;
+        p {
+            font-size: 22px;
+            color: #666666;
+            letter-spacing: 0;
+            line-height: 30px;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 34px;
+            color: #333333;
+            letter-spacing: 0;
+            line-height: 43px;
+        }
+    }
+}
+.recruiting .culture {
+    .content();
+    height: 517px;
+    // background-color: blue;
+    .culture-content {
+        height: 153px;
+        width: 100%;
+        // background-color: red;
+        .desc {
+            width: 640px;
+            height: 93px;
+            // background-color: blue;
+            p {
+                margin-top: 0;
+                font-size: 22px;
+                color: #666666;
+                letter-spacing: 0;
+                line-height: 30px;
+            }
+            h2 {
+                width: 640px;
+                margin-top: 20px;
+                font-size: 34px;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 43px;
+            }
+        }
+        .culture-list {
+            margin-top: 60px;
+            .item-1 .culture-item-img {
+                display: inline-block;
+                width: 81px;
+                height: 80px;
+                background: url("../img/aboutus/library.jpg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .item-2 .culture-item-img {
+                display: inline-block;
+                width: 81px;
+                height: 80px;
+                background: url("../img/aboutus/geek.jpg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .item-3 .culture-item-img {
+                display: inline-block;
+                width: 81px;
+                height: 80px;
+                background: url("../img/aboutus/micro.jpg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .culture-item {
+                width: 260px;
+                float: left;
+                display: inline-block;
+                margin-left: 100px;
+                vertical-align: top;
+                text-align: center;
+                .culture-item-title {
+                    margin: 20px 0;
+                    font-size: 16px;
+                    color: #333333;
+                    letter-spacing: 0;
+                    line-height: 28px;
+                }
+                .culture-item-desc {
+                    font-size: 14px;
+                    color: #666666;
+                    letter-spacing: 0;
+                    line-height: 24px;
+                    text-align: left;
+                    width: 270px;
+                }
+            }
+            .item-1 {
+                margin-left: 0;
+            }
+        }
+    }
+}
+.recruiting .value-duty {
+    .content();
+    height: 253px;
+    // background-color: yellow;
+    margin-bottom: 120px;
+    .value {
+        // background-color: red;
+        width: 480px;
+        float: left;
+    }
+    .duty,
+    .value {
+        .desc {
+            p {
+                font-size: 22px;
+                color: #666666;
+                letter-spacing: 0;
+                line-height: 30px;
+            }
+            h2 {
+                font-size: 34px;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 43px;
+                margin-top: 20px;
+            }
+            .content {
+                font-size: 16px;
+                color: #666666;
+                letter-spacing: 0;
+                line-height: 28px;
+                margin-top: 20px;
+            }
+        }
+    }
+    .duty {
+        // background-color: blue;
+        float: left;
+        margin-left: 120px;
+    }
+}
