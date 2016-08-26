@@ -66,18 +66,21 @@
             }
         }
         .arrow {
-            width: 14px;
-            height: 11px;
+            width: 16px;
+            height: 16px;
             float: right;
             margin-top: 49px;
             margin-right: 25px;
-            background-color: blue;
-            background-image: url("");
+            // background-color: blue;
+            background-image: url("../img/social/down.png");
             background-size: cover;
         }
     }
+    .guide-content:hover{
+      box-shadow: 0 8px 12px rgba(0,0,0,.2),0 8px 28px rgba(0,0,0,.12);
+      transition: opacity .3s ease-in-out;
+    }
 }
-
 .recruiting .campus-jobs {
     .content();
     height: 383px;
@@ -102,10 +105,10 @@
             line-height: 28px;
         }
         .job-list {
-            padding-left: 2.26415094%;
-            padding-right: 2.26415094%;
             margin-top: 80px;
             list-style: none;
+            // background-color: black;
+            overflow: hidden;
             .job-item {
                 float: left;
                 display: inline-block;
@@ -113,6 +116,10 @@
                 // padding: 29px 0;
                 vertical-align: top;
                 text-align: center;
+                // background-color: yellow;
+            }
+            .job-item:first-child{
+              margin-left:-48px;
             }
             .job-tech .job-img {
                 background-image: url("../img/campus/tech.jpg");
@@ -137,6 +144,7 @@
                 text-align: center;
                 color: #333333;
                 line-height: 28px;
+                // background-color: blue;
             }
             .job-img {
                 display: inline-block;
@@ -145,7 +153,6 @@
                 background-size: 80px 80px;
                 background-position: center;
                 background-repeat: no-repeat;
-                background-color: #fff;
             }
         }
     }

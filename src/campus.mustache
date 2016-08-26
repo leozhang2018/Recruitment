@@ -62,33 +62,82 @@
             </ul>
         </div>
     </section>
-    <section class="campus-process">
+    <span class="border-line"></span>
+    <section class="campus-process" id="campus-process">
         <h2 class="process-title">校招流程</h2>
-        <!-- <ul class="process-list">
-            <li class="process-item item-online">
-                <div class="icon icon-online-test"></div>
-                <h4 class="process-item-title">线上笔试</h4>
-                <p class="process-item-desc">投递简历前需要先登陆网易通行证帐号，没有账号的同学请先注册。每人
-                    <br>只能投递1个职位，请仔细阅读职位要求，根据自己的意愿进行投递。投递简历前
-                    <br>需要先登陆网易通行证帐号，没有账号的同学请先注册。</p>
-            </li>
-            <li class="process-item item-interview">
-                <div class="icon icon-interview"></div>
-                <h4 class="process-item-title">面试</h4>
-                <p class="process-item-desc">投递简历前需要先登陆网易通行证帐号，没有账号的同学请先注册。每人
-                    <br>只能投递1个职位，请仔细阅读职位要求，根据自己的意愿进行投递。投递简历前
-                    <br>需要先登陆网易通行证帐号，没有账号的同学请先注册。
-                </p>
-            </li>
-            <li class="process-item item-capture">
-                <div class="icon icon-offer"></div>
-                <h4 class="process-item-title">录用通知</h4>
-                <p class="process-item-desc">投递简历前需要先登陆网易通行证帐号，没有账号的同学请先注册。每人
-                    <br>只能投递1个职位，请仔细阅读职位要求，根据自己的意愿进行投递。投递简历前
-                    <br>需要先登陆网易通行证帐号，没有账号的同学请先注册。</p>
-            </li>
-            <span class="justify-fix"></span>
-        </ul> -->
+        <div class="process-container">
+            <div class="nav-tab">
+                <ul class="tab-list">
+                    <li class="tab-item">
+                        <a v-link="{ path: '/advanced',activeClass: 'active'}">提前批内推</a>
+                    </li>
+                    <li class="tab-item">
+                        <span></span>
+                    </li>
+                    <li class="tab-item">
+                        <a v-link="{ path: '/unified',activeClass: 'active'}">统一校招</a>
+                    </li>
+                </ul>
+            </div>
+            <!--用于渲染匹配的组件 此处为 -->
+            <router-view></router-view>
+            <template id="unified">
+                <ul class="process-list">
+                    <li class="process-item">
+                        <span class="time">8 月底 － 9 月底</span>
+                        <span class="event">笔试报名</span>
+                        <p class="desc">此次校招不提前收简历，请点击链接报名笔试完成申请。
+                            <br>我们会向所有报名的学生发送笔试通知，并邀请通过的学生投递简历。
+                        </p>
+                    </li>
+                    <li class="process-item">
+                        <span class="time">9 月底 － 10 月初</span>
+                        <span class="event">线上笔试</span>
+                        <p class="desc">线上笔试将分为３个岗位，2 个批次。
+                            <br>请同学们根据自身时间安排，挑选相应的场次参加。
+                        </p>
+                    </li>
+                    <li class="process-item">
+                        <span class="time">10 月初 － 10 月中</span>
+                        <span class="event">面试</span>
+                        <p class="desc">我们将根据意向工作地及目前所在城市，协调安排面试形式及地点。
+                            <br>外地学生会尽量安排远程面试，请随时保持手机畅通。
+                        </p>
+                    </li>
+                    <li class="process-item">
+                        <span class="time">10 月底 － 11 月初</span>
+                        <span class="event">发放 Offer</span>
+                        <p class="desc">我们会给面试通过的同学发放 Offer。</p>
+                    </li>
+                </ul>
+            </template>
+            <template id="advanced">
+                <ul class="process-list">
+                    <li class="process-item">
+                        <span class="time">8月10日~9月10日</span>
+                        <span class="event">简历内推</span>
+                        <p class="desc">七牛员工和校园大使很乐意帮你提前拿到校招 offer。
+                            <br>若内推不通过，不会影响正式校招，依然可参加线上笔试。
+                        </p>
+                    </li>
+                    <li class="process-item">
+                        <span class="time">8月22日~9月23日</span>
+                        <span class="event">面试</span>
+                        <p class="desc"> 内推简历无需参加笔试，若简历筛选通过将收到面试邀请。
+                            <br>外地学生会安排远程面试，请随时保持手机畅通。
+                        </p>
+                    </li>
+                    <li class="process-item">
+                        <span class="time">９月底～10月初</span>
+                        <span class="event">提前 offer</span>
+                        <p class="desc">我们会在正式笔试开始前发出部分 offer，希望提前认识你。
+                        </p>
+                    </li>
+                </ul>
+            </template>
+
+        </div>
+
     </section>
     <section class="campus-journey">
         <div class="journey-map">
@@ -98,7 +147,7 @@
             <div class="journey-desc-content">
                 <h2>宣讲行程</h2>
                 <p>
-                    我们将会在上海、杭州、南京、合肥、北京、大连、哈尔滨、西安、成都、武汉、广州等城市进行校园宣讲会，具体时间待定，敬请期待。
+                    我们将会在上海、杭州、南京、合肥、北京、武汉等城市进行校园宣讲会，具体时间待定，敬请期待。
                 </p>
             </div>
         </div>
@@ -132,6 +181,7 @@
             </div>
         </div>
     </section>
+    <span class="border-line"></span>
     <section class="campus-start-title">
         <div class="campus-start-title-content">
             <h2>七牛 2017 校园招聘</h2>
@@ -155,9 +205,52 @@
         </div>
     </section>
     {{> ./partials/footer }}
+    <!-- {{> ./partials/statistics }} -->
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script>
+        // 统一校招组件
+        var Unified = Vue.extend({
+            template: '#unified',
+            data: function() {
+                return {
+                    msg: '统一校招组件',
+                    currentPath: ''
+                }
+            },
+            route: {
+                data: function(transition) {
+                    transition.next({
+                        currentPath: transition.to.path
+                    })
+                }
+            }
+        })
 
-    {{> ./partials/statistics }}
-
+        /* 提前批组件*/
+        var Advanced = Vue.extend({
+                template: '#advanced'
+            })
+            /* 创建路由器  */
+        var router = new VueRouter()
+            // 默认路由
+        router.redirect({
+                '/': '/advanced'
+            })
+            /* 创建路由映射  */
+        router.map({
+                '/advanced': {
+                    component: Advanced,
+                    // 定义子路由
+                },
+                '/unified': {
+                    component: Unified
+                }
+            })
+            /* 启动路由  */
+        var CampusProcessTab = Vue.extend({})
+        router.start(CampusProcessTab, '#campus-process')
+    </script>
 </body>
 
 </html>
