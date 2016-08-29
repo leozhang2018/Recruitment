@@ -6,7 +6,83 @@
 .recruiting .pic-slide {
     width: 100%;
     height: 510px;
-    background-color: black;
+    // background-color: black;
+    position: relative;
+    .bg {
+        height: 360px;
+        background: #F5F5F5;
+    }
+    .slide-container {
+        position: relative;
+        height: 360px;
+        width: 1060px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -280px;
+        // background-color: #ff0;
+        .slide-wrap {
+            width: 1300px;
+            height: 360px;
+            overflow: hidden;
+            position: relative;
+            top: 0;
+            left: 0;
+            // background-color: red;
+            ul {
+                /*width:1920px;*/
+                position: absolute;
+                top: 0;
+                left: 0;
+                li {
+                    list-style: none;
+                    width: 640px;
+                    height: 360px;
+                    float: left;
+                    padding-right: 20px;
+                    a {
+                        display: block;
+                    }
+                    img {
+                        width: 640px;
+                        height: 360px;
+                        vertical-align: top;
+                    }
+                }
+            }
+            .slide-animate {
+                transition: all ease 0.5s;
+            }
+        }
+        .pic-change-btn {
+            margin: 30px auto 0;
+            width: 1060px;
+            height: 40px;
+            // background-color: #00f;
+            margin: 0 auto;
+            width: 1060px;
+            height: 40px;
+            margin-top: 30px;
+            // background-color: blue;
+            .left {
+                float: left;
+                width: 40px;
+                height: 40px;
+                // background-color: yellow;
+                background-image: url("../img/campus/grey-left.png");
+                background-size: cover;
+                cursor: pointer;
+            }
+            .right {
+                width: 40px;
+                height: 40px;
+                margin-left: 50px;
+                // background-color: yellow;
+                background-image: url("../img/campus/grey-right.png");
+                background-size: cover;
+                cursor: pointer;
+            }
+        }
+    }
 }
 .recruiting .learn-develop {
     .content();

@@ -17,8 +17,36 @@
 <body class="recruiting">
 
     {{> ./partials/header }}
-    <section class="pic-slide">
+    <section class="pic-slide" id="app">
+
+        <div class="bg">
+
+        </div>
+        <div class="slide-container">
+            <slider></slider>
+        </div>
+
     </section>
+    <template id="slider">
+        <div class="slide-wrap">
+            <ul class="clearfix slide-animate" v-bind:style='getClass'>
+                <li v-for="item in imgData" v-bind:current="current">
+                    <a href="{{item.href}}">
+                      <img  v-bind:src="item.imgsrc" />
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="pic-change-btn">
+            <div v-on:click="turnToPrev" class="left">
+
+            </div>
+            <div v-on:click="turnToNext" class="right">
+
+            </div>
+        </div>
+    </template>
     <section class="learn-develop">
         <div class="learn-content">
             <div class="desc">
@@ -73,7 +101,7 @@
                     <i class="feature-item-top-line"></i>
                     <h4 class="feature-item-title">大咖分享会</h4>
                     <p class="feature-item-desc">
-                      业界大咖，内部大牛，各路奇才的精彩分享，涉及了前沿技术、行业资讯、工具技能，乃至生活爱好中的高能指南。
+                        业界大咖，内部大牛，各路奇才的精彩分享，涉及了前沿技术、行业资讯、工具技能，乃至生活爱好中的高能指南。
                     </p>
                 </li>
                 <li class="feature-item">
@@ -150,7 +178,108 @@
         </div>
     </section>
     {{> ./partials/footer }}
-
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script type="text/javascript">
+        Vue.component('slider', {
+            template: '#slider',
+            data: function() {
+                return {
+                    currentIdx: 0,
+                    currentLeft: 0 + 'px',
+                    autoplay: false,
+                    timer: null, // 用在在点击btn 的时候关掉定时器 不然的话就会出现问题
+                    imgData: [{
+                        title: '',
+                        href: '#',
+                        imgsrc: './img/workhere/slider/1.png',
+                        alt: 'jpg1'
+                    }, {
+                        title: '',
+                        href: '#',
+                        imgsrc: './img/workhere/slider/2.jpg',
+                        alt: 'jpg2'
+                    }, {
+                        title: '',
+                        href: '#',
+                        imgsrc: './img/workhere/slider/3.jpg',
+                        alt: 'jpg3'
+                    }, {
+                        title: '',
+                        href: '#',
+                        imgsrc: './img/workhere/slider/3.jpg',
+                        alt: 'jpg3'
+                    }, {
+                        title: '',
+                        href: '#',
+                        imgsrc: './img/workhere/slider/3.jpg',
+                        alt: 'jpg3'
+                    }]
+                }
+            },
+            computed: {
+                getClass: {
+                    get: function() {
+                        var imgArray = this.imgData;
+                        return {
+                            width: imgArray.length * 640 + 'px',
+                            left: this.currentLeft
+                        }
+                    },
+                    set: function(currentIdx) {
+                        this.currentLeft = -660 * currentIdx + 'px'
+                    }
+                }
+            },
+            methods: {
+                turn: function(i) {
+                    //首先是让now = 1
+                    var now = this.currentIdx + i;
+                    var imgArray = this.imgData;
+                    // console.log(now)
+                    // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
+                    if (now < 0) {
+                        now = 0;
+                        console.log("前面已经没有啦")
+                    }
+                    //循环显示
+                    if (now >= imgArray.length) {
+                        now = now - imgArray.length;
+                        // console.log(now)
+                    }
+                    this.getClass = now;
+                    this.currentIdx = now;
+                    console.log("当前图片 ID :" + this.currentIdx);
+                },
+                autoPlay: function() {
+                    var _that = this;
+                    this.timer = setInterval(function() {
+                        _that.turn(1)
+                    }, 3000);
+                    console.log("自动轮播中~")
+                },
+                pause: function() {
+                    clearInterval(this.timer)
+                },
+                turnToPrev: function() {
+                    // this.pause(); //先关掉定时器 然后在turn()
+                    this.turn(-1);
+                },
+                turnToNext: function() {
+                    // this.pause();
+                    this.turn(1);
+                }
+            },
+            ready: function() {
+                if (this.autoplay == true) {
+                    this.autoPlay();
+                }
+            }
+        })
+        var slide = new Vue({
+            el: '#app',
+        })
+    </script>
 </body>
 
 </html>

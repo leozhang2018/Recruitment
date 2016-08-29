@@ -158,7 +158,6 @@
                 list-style: none;
                 // background-color: black;
                 overflow: hidden;
-
                 .tab-item {
                     float: left;
                     margin-right: 20px;
@@ -177,14 +176,11 @@
                         background: #CCCCCC;
                         margin-top: 13px;
                     }
-                    .active{
-                       color: #999999;
+                    .active {
+                        color: #999999;
                     }
                 }
-
-
             }
-
         }
         .process-list {
             list-style: none;
@@ -193,9 +189,9 @@
         }
         .process-item {
             // width: 730px;
+            display: inline-block;
             height: 48px;
             margin-bottom: 60px;
-            display: inline-block;
             background-color: #fff;
             position: relative;
             .time {
@@ -209,22 +205,23 @@
                 vertical-align: top;
             }
             .event {
+                display: inline-block;
                 font-size: 16px;
+                font-weight: 500;
                 color: #2F3033;
                 letter-spacing: 0;
                 line-height: 28px;
-                display: inline-block;
                 // background-color: black;
                 width: 72px;
                 margin-left: 43px;
                 vertical-align: top;
             }
             .desc {
+                display: inline-block;
                 font-size: 14px;
                 color: #5E6166;
                 letter-spacing: 0;
                 line-height: 24px;
-                display: inline-block;
                 // background-color: black;
                 margin-left: 35px;
                 vertical-align: top;
@@ -286,8 +283,9 @@
         width: 940px;
         position: absolute;
         top: 50%;
+        left: 50%;
         margin-top: -150px;
-        margin-left: 90px;
+        margin-left: -470px;
         background-color: red;
     }
     .people-info {
@@ -318,8 +316,9 @@
         }
         .job-title {
             p {
+                margin-top: 0;
                 font-size: 14px;
-                color: #666666;
+                color: #666;
                 letter-spacing: 0;
                 line-height: 24px;
             }
@@ -335,6 +334,7 @@
             color: #333333;
             letter-spacing: 0;
             line-height: 48px;
+            margin: 0;
         }
     }
     .change-btn {
@@ -411,7 +411,7 @@
             width: 40px;
             height: 40px;
             background-color: yellow;
-            background-image: url("../img/campus/white-left.png");
+            background-image: url("../img/campus/grey-left.png");
             background-size: cover;
             cursor: pointer;
         }
@@ -420,7 +420,7 @@
             height: 40px;
             margin-left: 50px;
             background-color: yellow;
-            background-image: url("../img/campus/white-right.png");
+            background-image: url("../img/campus/grey-right.png");
             background-size: cover;
             cursor: pointer;
         }
