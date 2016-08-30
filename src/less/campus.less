@@ -278,19 +278,35 @@
     height: 550px;
     background-color: yellow;
     position: relative;
-    .they-said-content {
-        height: 310px;
-        width: 940px;
+    ul {
+        /*width:1920px;*/
         position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -150px;
-        margin-left: -470px;
-        background-color: red;
+        top: 0;
+        left: 0;
+        li {
+            list-style: none;
+            width: 940px;
+            height: 310px;
+            float: left;
+        }
+    }
+    .slide-animate {
+        transition: all ease 0.5s;
+    }
+    .they-said-content {
+      height: 310px;
+          width: 940px;
+          position: absolute;
+          margin-top: -155px;
+          /* margin-left: -470px; */
+          background-color: red;
+          overflow: hidden;
+          top: 50%;
+          /* left: 0; */
     }
     .people-info {
         height: 140px;
-        width: 98px;
+        // width: 98px;
         position: absolute;
         background-color: blue;
         .avatar {
@@ -325,7 +341,7 @@
         }
     }
     .people-said {
-        width: 640px;
+        width: 660px;
         height: 240px;
         margin-left: 240px;
         background-color: blue;
@@ -340,15 +356,16 @@
     .change-btn {
         width: 90px;
         height: 40px;
-        margin-top: 30px;
         margin-left: 240px;
-        background-color: blue;
+        position: absolute;
+        bottom: 0;
+        background-color: #00f;
         .left {
             float: left;
             width: 40px;
             height: 40px;
             background-color: yellow;
-            background-image: url("../img/campus/white-left.png");
+            background-image: url("../img/campus/grey-left.png");
             background-size: cover;
             cursor: pointer;
         }
@@ -357,7 +374,7 @@
             height: 40px;
             margin-left: 50px;
             background-color: yellow;
-            background-image: url("../img/campus/white-right.png");
+            background-image: url("../img/campus/grey-right.png");
             background-size: cover;
             cursor: pointer;
         }

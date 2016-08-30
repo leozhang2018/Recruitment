@@ -27,6 +27,7 @@
     </section>
 
     <section class="banner"></section>
+
     <section class="campus-jobs">
         <div class="campus-jobs-content">
             <h2>这些机会，期待你加入</h2>
@@ -41,7 +42,7 @@
                 </li>
                 <li class="job-item job-business">
                     <div class="job-img"></div>
-                    <p class="job-desc">业务</p>
+                    <p class="job-desc">市场</p>
                 </li>
                 <li class="job-item job-product">
                     <div class="job-img"></div>
@@ -53,7 +54,7 @@
                 </li>
                 <li class="job-item job-marketing">
                     <div class="job-img"></div>
-                    <p class="job-desc">运营</p>
+                    <p class="job-desc">销售</p>
                 </li>
                 <li class="job-item job-function">
                     <div class="job-img"></div>
@@ -63,6 +64,7 @@
         </div>
     </section>
     <span class="border-line"></span>
+
     <section class="campus-process" id="campus-process">
         <h2 class="process-title">校招流程</h2>
         <div class="process-container">
@@ -139,6 +141,7 @@
         </div>
 
     </section>
+
     <section class="campus-journey">
         <div class="journey-map">
 
@@ -152,36 +155,46 @@
             </div>
         </div>
     </section>
-    <section class="they-said">
+    <section class="they-said" id="app">
+
         <div class="they-said-content">
-            <div class="people-info">
-                <div class="avatar">
-                    <img src="../img/avatar/mayiqing.jpg" alt="mayiqing" />
+            <text-slider></text-slider>
+        </div>
+
+    </section>
+    <template id="text-slider">
+        <ul class="clearfix slide-animate" v-bind:style='getClass'>
+            <li v-for="item in textData" v-bind:current="current">
+                <div class="people-info">
+                    <div class="avatar">
+                        <img v-bind:src="item.imgsrc" v-bind:alt="item.name" />
+                    </div>
+                    <div class="name">
+                        <h3>{{item.name}}</h3>
+                    </div>
+                    <div class="job-title">
+                        <p>{{item.job_title}}</p>
+                    </div>
                 </div>
-                <div class="name">
-                    <h3>李彦宏</h3>
+                <div class="people-said">
+                    <p>
+                        “{{item.content}}”
+                    </p>
                 </div>
-                <div class="job-title">
-                    <p>算法工程师</p>
-                </div>
+            </li>
+        </ul>
+
+        <div class="change-btn">
+            <div v-on:click="turnToPrev" class="left">
 
             </div>
-            <div class="people-said">
-                <p>
-                    “由于提供的是技术类的产品，业务和技术的关系非常紧密，这也让我们的技术氛围比较好，是比较典型的工程师文化。我们喜欢思考问题的本质，尽量用简单的规则和办法去解决看似复杂的问题。这也是公司一直以来崇尚的文化，简单可信赖。”
-                </p>
-            </div>
-            <div class="change-btn">
-                <div class="left">
+            <div v-on:click="turnToNext" class="right">
 
-                </div>
-                <div class="right">
-
-                </div>
             </div>
         </div>
-    </section>
+    </template>
     <span class="border-line"></span>
+
     <section class="campus-start-title">
         <div class="campus-start-title-content">
             <h2>七牛 2017 校园招聘</h2>
@@ -249,6 +262,336 @@
             /* 启动路由  */
         var CampusProcessTab = Vue.extend({})
         router.start(CampusProcessTab, '#campus-process')
+    </script>
+    <script type="text/javascript">
+        Vue.component('text-slider', {
+            template: '#text-slider',
+            data: function() {
+                return {
+                    currentIdx: 0,
+                    currentLeft: 0 + 'px',
+                    autoplay: false,
+                    timer: null, // 用在在点击btn 的时候关掉定时器 不然的话就会出现问题
+                    textData: [{
+                        name: '马逸清',
+                        job_title: '前端开发工程师',
+                        graduate: '2013 年毕业于上海大学',
+                        href: '#',
+                        imgsrc: './img/avatar/myq.jpg',
+                        alt: '',
+                        content: '由于提供的是技术类的产品，业务和技术的关系非常紧密，这也让我们的技术氛围比较好，是比较典型的工程师文化。我们喜欢思考问题的本质，尽量用简单的规则和办法去解决看似复杂的问题。这也是公司一直以来崇尚的文化，简单可信赖。'
+                    }, {
+                        name: '宋文灏',
+                        job_title: '后端开发工程师',
+                        graduate: '2016年毕业于上海交通大学',
+                        href: '#',
+                        imgsrc: './img/avatar/swh.jpeg',
+                        alt: '',
+                        content: '如果你能够自发性地学习，希望得到快速的成长，希望尝试和大公司不一样的工作体验，有追求有理想，觉得年轻的时候不奋斗一下有点可惜，那么七牛对你来说可能是个不错的选择。'
+                    }, {
+                        name: '邵羽',
+                        job_title: '后端开发工程师',
+                        graduate: '2016年毕业于上海交通大学',
+                        href: '#',
+                        imgsrc: './img/avatar/sw.jpg',
+                        alt: '',
+                        content: '我是2015年5月25日加入七牛的。碰巧的是，我的入党日期也是5月25日，当时就有朋友开玩笑说在“我爱我”日这一天加入中国共产党是你送给自己最好的礼物，如今我也同样自豪的认为：在这一天加入七牛是我送给自己最好的礼物。'
+                    }, {
+                        name: '陈心',
+                        job_title: '后端开发工程师',
+                        graduate: '2016年毕业于上海交通大学',
+                        href: '#',
+                        imgsrc: './img/avatar/cx.jpg',
+                        alt: '',
+                        content: '我是个比较害羞的人，对人际交往很不在行。但是七牛真的让人很放松，没有多余的社交，大家都专心做手头上的事情，在工作中建立友情。这是一家简单的公司，但是大家一起努力做着不简单的事。'
+                    }, {
+                        name: '罗轶斯',
+                        job_title: '活动运营专员',
+                        graduate: '2015年毕业于四川音乐学院',
+                        href: '#',
+                        imgsrc: './img/avatar/lys.jpg',
+                        alt: '',
+                        content: '七牛给我的最大的感觉就是，工作氛围很好。在工作中，每一位小伙伴从专员到CMO，每个人都在认真负责着自己的工作，毫不懈怠，我觉得年轻人就应该在这种工作圈中工作，才会得到提升。所以一直庆幸选择了七牛。'
+                    }, {
+                        name: '常龙',
+                        job_title: '销售管培生',
+                        graduate: '2016年毕业于东北石油大学',
+                        href: '#',
+                        imgsrc: './img/avatar/cl.jpg',
+                        alt: '',
+                        content: '在七牛，你的个性可以得到充分的发挥。你不要担心别人会束缚你，你只需要尽情的舒展自己。所以在七牛，我有一种恋爱的感觉，这儿的环境很舒畅，让你不自觉的就融入其中。大家都是那么努力，所以你也在努力，让自己成为一个更好的自己。'
+                    }]
+                }
+            },
+            computed: {
+                getClass: {
+                    get: function() {
+                        var textArray = this.textData;
+                        return {
+                            width: textArray.length * 940 + 'px',
+                            left: this.currentLeft
+                        }
+                    },
+                    set: function(currentIdx) {
+                        this.currentLeft = -940 * currentIdx + 'px'
+                    }
+                }
+            },
+            methods: {
+                turn: function(i) {
+                    //首先是让now = 1
+                    var now = this.currentIdx + i;
+                    var textArray = this.textData;
+                    // console.log(now)
+                    // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
+                    if (now < 0) {
+                        now = 0;
+                        console.log("前面已经没有啦")
+                    }
+                    //循环显示
+                    if (now >= textArray.length) {
+                        now = now - textArray.length;
+                        // console.log(now)
+                    }
+                    this.getClass = now;
+                    this.currentIdx = now;
+                    console.log("当前区域 ID :" + this.currentIdx);
+                },
+                autoPlay: function() {
+                    var _that = this;
+                    this.timer = setInterval(function() {
+                        _that.turn(1)
+                    }, 3000);
+                    console.log("自动轮播中~")
+                },
+                pause: function() {
+                    clearInterval(this.timer)
+                },
+                turnToPrev: function() {
+                    // this.pause(); //先关掉定时器 然后在turn()
+                    this.turn(-1);
+                },
+                turnToNext: function() {
+                    // this.pause();
+                    this.turn(1);
+                }
+            },
+            ready: function() {
+                if (this.autoplay == true) {
+                    this.autoPlay();
+                }
+            }
+        })
+        var slide = new Vue({
+            el: '#app',
+        })
+
+        /*****视频轮播组件****/
+        var Parent = Vue.extend({
+                template: '#video-slider',
+                components: {
+                    'Modal': {
+                        template: '#modal-template',
+                        methods: {
+                            close: function() {
+                                console.log("click close");
+                                //关闭模态框
+                                this.show = false;
+                                // // PlayID 置空
+                                this.readyPlayId = '';
+                                // // // PlaySrc 置空
+                                this.readyPlaySrc = '';
+                                this.stopPlayer = true;
+                                console.log("stopPlayer 值:" + this.stopPlayer);
+                                //当前为利用异常停止
+                            }
+                        },
+                        props: {
+                            show: {
+                                type: Boolean,
+                                required: true,
+                                twoWay: true
+                            },
+                            readyPlayId: {
+                                type: String
+                                    // required: true,
+                                    // twoWay: true
+                            },
+                            readyPlaySrc: {
+                                type: String
+                                    // required: true,
+                                    // twoWay: true
+                            },
+                            stopPlayer: {
+                                type: Boolean
+                                    // required: true,
+                                    // twoWay: true
+                            },
+                        }
+                    }
+
+                },
+                data: function() {
+                    return {
+                        currentIdx: 0,
+                        currentLeft: 0 + 'px',
+                        autoplay: false,
+                        timer: null,
+                        videoData: [{
+                            id: '0',
+                            name: 'video1',
+                            href: '#1',
+                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4',
+                            poster: './img/slider/1.png',
+                            contentType: 'video/mp4',
+                            desc_title: '七牛，缩短想法到产品的距离',
+                            desc: '七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使客户缩短了产品从个想法到上线的距离。'
+                        }, {
+                            id: '1',
+                            name: 'video2',
+                            href: '#2',
+                            src: './img/slider/2.mp4',
+                            poster: './img/slider/2.jpg',
+                            contentType: 'video/mp4',
+                            desc_title: '七牛 2017 校园招聘',
+                            desc: 'Hello World, Crazy Go!<br>七牛，期待你的加入！'
+                        }],
+                        styleObject: null,
+                        videoID: 0,
+                        showModal: false,
+                        readyPlayId: '',
+                        readyPlaySrc: '',
+                        playing: null,
+                        stopPlayer: null
+
+                    }
+                },
+                computed: {
+                    getClass: {
+                        get: function() {
+                            var videoArray = this.videoData;
+                            return {
+                                width: videoArray.length * 660 + 'px',
+                                left: this.currentLeft
+                            }
+                        },
+                        set: function(currentIdx) {
+                            this.currentLeft = -660 * currentIdx + 'px';
+                            this.videoID = currentIdx;
+
+                        }
+                    },
+                    setVideoSrc: {
+                        get: function() {
+                            // this.readyPlaySrc;
+
+                        },
+                        set: function(currentVideoSrc) {
+                            this.readyPlaySrc = currentVideoSrc;
+                        }
+                    },
+                    setVideoId: {
+                        get: function() {
+                            // this.readyPlayId;
+
+                        },
+                        set: function(currentVideoId) {
+                            this.readyPlayId = currentVideoId;
+                            console.log("Set Video" + currentVideoId);
+                        }
+                    },
+                    stopVideo: {
+                        get: function() {
+                            // this.stopPlayer;
+
+                        },
+                        set: function(currentVideoId) {
+                            // console.log(this.stopPlayer);
+                        }
+                    }
+                },
+                methods: {
+                    turn: function(i) {
+                        //首先是让now = 1
+                        var now = this.currentIdx + i;
+                        var videoArray = this.videoData;
+                        // console.log(now)
+                        // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
+                        if (now < 0) {
+                            now = 0;
+                            console.log("前面已经没有啦")
+                        }
+                        //循环显示
+                        if (now >= videoArray.length) {
+                            now = now - videoArray.length;
+                            // console.log(now)
+                        }
+                        this.getClass = now;
+                        this.currentIdx = now;
+                        console.log("当前视频 ID :" + this.currentIdx);
+                    },
+                    autoPlay: function() {
+                        var _that = this;
+                        this.timer = setInterval(function() {
+                            _that.turn(1)
+                        }, 3000);
+                        console.log("自动轮播中~")
+                    },
+                    pause: function() {
+                        clearInterval(this.timer)
+                    },
+                    turnToPrev: function() {
+                        // this.pause(); //先关掉定时器 然后在turn()
+                        this.turn(-1);
+                    },
+                    turnToNext: function() {
+                        // this.pause();
+                        this.turn(1);
+                    },
+                    play: function(videoId) {
+                        var clickVideoName = this.videoData[videoId].name;
+                        console.log("点击视频:" + videoId);
+                        //切换文字
+                        this.videoID = videoId;
+                        //设置 SRC
+                        this.setVideoSrc = this.videoData[videoId].src;
+                        //设置 ID name
+                        this.setVideoId = clickVideoName;
+                        //显示模态框
+                        this.showModal = true;
+
+                        /* videojs 这坑先不填,后期自定义皮肤 */
+
+                        //     // this.turnToNext();
+                        // 是否显示播放 btn
+                        // this.styleObject = videoId;
+                        // 初始化播放器
+                        // var player = videojs('video2', {
+                        //         /* Options */
+                        //     },
+                        //     function() {
+                        //         console.log('播放就绪');
+                        //         // 开始播放
+                        //         this.play();
+                        //         // 播放结束事件
+                        //         this.on('ended', function() {
+                        //             console.log('播放结束');
+                        //         });
+                        //     });
+
+                    }
+                },
+                ready: function() {
+                    if (this.autoplay == true) {
+                        this.autoPlay();
+                    }
+                }
+            })
+            // 全局注册Parent组件
+        Vue.component('video-slider', Parent);
+        var videoSlide = new Vue({
+            el: '#app'
+        })
     </script>
 </body>
 

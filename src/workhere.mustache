@@ -22,29 +22,33 @@
         <div class="bg">
 
         </div>
-        <div class="slide-container">
-            <slider></slider>
-        </div>
+
+        <slider></slider>
+
 
     </section>
     <template id="slider">
-        <div class="slide-wrap">
-            <ul class="clearfix slide-animate" v-bind:style='getClass'>
-                <li v-for="item in imgData" v-bind:current="current">
-                    <a href="{{item.href}}">
-                      <img  v-bind:src="item.imgsrc" />
-                    </a>
-                </li>
-            </ul>
 
-        </div>
-        <div class="pic-change-btn">
-            <div v-on:click="turnToPrev" class="left">
+        <div class="slide-container" v-bind:class="startClick == true ? 'sliderContainerClass': ''">
+            <div class="slide-wrap" v-bind:class="startClick == true ? 'sliderClass': ''">
+                <ul class="clearfix slide-animate" v-bind:style='getClass'>
+                    <li v-for="item in imgData" v-bind:current="current">
+                        <a href="{{item.href}}">
+                            <img v-bind:src="item.imgsrc" />
+                        </a>
+                    </li>
+                </ul>
 
             </div>
-            <div v-on:click="turnToNext" class="right">
+            <div class="pic-change-btn">
+                <div v-on:click="turnToPrev" class="left" v-bind:class="first_pic == true ? 'opacityClass': ''">
 
+                </div>
+                <div v-on:click="turnToNext" class="right" v-bind:class="last_pic == true ? 'opacityClass': ''">
+
+                </div>
             </div>
+
         </div>
     </template>
     <section class="learn-develop">
@@ -208,13 +212,16 @@
                         title: '',
                         href: '#',
                         imgsrc: './img/workhere/slider/3.jpg',
-                        alt: 'jpg3'
+                        alt: 'jpg4'
                     }, {
                         title: '',
                         href: '#',
-                        imgsrc: './img/workhere/slider/3.jpg',
-                        alt: 'jpg3'
-                    }]
+                        imgsrc: './img/workhere/slider/1.png',
+                        alt: 'jpg5'
+                    }],
+                    startClick: null,
+                    first_pic: null,
+                    last_pic: null
                 }
             },
             computed: {
@@ -222,12 +229,30 @@
                     get: function() {
                         var imgArray = this.imgData;
                         return {
-                            width: imgArray.length * 640 + 'px',
+                            width: (imgArray.length + 1) * 640 + 'px',
                             left: this.currentLeft
                         }
                     },
                     set: function(currentIdx) {
-                        this.currentLeft = -660 * currentIdx + 'px'
+                        var imgArray = this.imgData;
+                        if (currentIdx === 0) {
+                            this.first_pic = true;
+                        } else {
+                            this.first_pic = false;
+                        }
+
+                        if (currentIdx === (imgArray.length - 1)) {
+                            this.last_pic = true;
+                        } else {
+                            this.last_pic = false;
+                        }
+
+                        if (currentIdx == 1) {
+                            this.currentLeft = -235 * currentIdx + 'px'
+
+                        } else {
+                            this.currentLeft = -235 - 660 * (currentIdx - 1) + 'px'
+                        }
                     }
                 }
             },
@@ -240,7 +265,9 @@
                     // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
                     if (now < 0) {
                         now = 0;
-                        console.log("前面已经没有啦")
+                        console.log("前面已经没有啦");
+                        this.first_pic = true;
+                        return;
                     }
                     //循环显示
                     if (now >= imgArray.length) {
@@ -264,10 +291,12 @@
                 turnToPrev: function() {
                     // this.pause(); //先关掉定时器 然后在turn()
                     this.turn(-1);
+
                 },
                 turnToNext: function() {
                     // this.pause();
                     this.turn(1);
+                    this.startClick = true;
                 }
             },
             ready: function() {
