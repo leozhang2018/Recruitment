@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" href="http://www.qiniu.com/public/v2/img/favicon.ico">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/video-slider.css">
 </head>
 
 <body class="recruiting">
@@ -40,32 +41,283 @@
             </a>
         </div>
     </section>
-    <section class="slogan">
-        <div class="slogan-content">
-            <h2>七牛，缩短想法到产品的距离</h2>
-            <p>
-                七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使客户缩短了产品从个想法到上线的距离。
-            </p>
-        </div>
-    </section>
-    <section class="video-banner">
-        <div class="video-content">
 
+    <section class="video-banner" id="video-container">
+        <video-slider>
+        </video-slider>
+    </section>
+
+
+    <!-- 视频轮播模板 -->
+    <template id="video-slider">
+        <section v-if="videoID == 0" class="slogan">
+            <div class="slogan-content">
+                <h2>七牛，缩短想法到产品的距离</h2>
+                <p>七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，使客户缩短了产品从个想法到上线的距离。</p>
+            </div>
+        </section>
+        <section v-if="videoID == 1" class="slogan">
+            <div class="slogan-content">
+                <h2>七牛 2017 校园招聘</h2>
+                <p>Hello World Crazy Go
+                    <br>&nbsp七牛期待你的加入</p>
+            </div>
+        </section>
+        <div class="slide-container">
+            <div class="slider-wrap">
+                <ul class="clearfix slide-animate" v-bind:style='getClass'>
+                    <li v-for="item in videoData" v-bind:current="current">
+                        <a href="javascript:void(0)">
+                            <img v-bind:src="item.poster" />
+                        </a>
+                        <!--播放按钮-->
+                        <div class="player_btn">
+                            <div class="player_pause" v-bind:class="styleObject == item.id ? 'notActive': 'Active'" v-on:click="play(item.id)"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="video-change-btn">
-            <div class="left">
+            <div v-on:click="turnToPrev" class="left">
 
             </div>
-            <div class="right">
+            <div v-on:click="turnToNext" class="right">
 
             </div>
         </div>
-    </section>
+        <modal :show.sync="showModal" :ready-play-id.sync="readyPlayId" :ready-play-src.sync="readyPlaySrc" :stop-player.sync="stopPlayer">
+
+        </modal>
+    </template>
+
+    <template id="modal-template">
+        <div class="modal-mask" v-show="show" transition="modal" v-if="readyPlaySrc !==''">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal-body">
+                        <slot name="body">
+                            <div class="modal-default-button" v-on:click="close"></div>
+                            <video class="video-js vjs-default-skin" width="1280px" autoplay height="720px" v-bind:id="readyPlayId" v-bind:style="" preload controls>
+                                <source v-bind:src="readyPlaySrc" type="video/mp4" />
+                            </video>
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
     {{> ./partials/footer }} {{> ./partials/statistics }}
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
     <script>
+        /*****视频轮播组件****/
+        var Parent = Vue.extend({
+                template: '#video-slider',
+                components: {
+                    'Modal': {
+                        template: '#modal-template',
+                        methods: {
+                            close: function() {
+                                console.log("click close");
+                                //关闭模态框
+                                this.show = false;
+                                // // PlayID 置空
+                                this.readyPlayId = '';
+                                // // // PlaySrc 置空
+                                this.readyPlaySrc = '';
+                                this.stopPlayer = true;
+                                console.log("stopPlayer 值:" + this.stopPlayer);
+                                //当前为利用异常停止
+                            }
+                        },
+                        props: {
+                            show: {
+                                type: Boolean,
+                                required: true,
+                                twoWay: true
+                            },
+                            readyPlayId: {
+                                type: String
+                                    // required: true,
+                                    // twoWay: true
+                            },
+                            readyPlaySrc: {
+                                type: String
+                                    // required: true,
+                                    // twoWay: true
+                            },
+                            stopPlayer: {
+                                type: Boolean
+                                    // required: true,
+                                    // twoWay: true
+                            },
+                        }
+                    }
 
+                },
+                data: function() {
+                    return {
+                        currentIdx: 0,
+                        currentLeft: 0 + 'px',
+                        autoplay: false,
+                        timer: null,
+                        videoData: [{
+                            id: '0',
+                            name: 'video1',
+                            href: 'javascript:void(0)',
+                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4',
+                            poster: './img/campus/slider/Video-1.jpg',
+                            contentType: 'video/mp4',
+                            desc_title: '七牛，缩短想法到产品的距离',
+                            desc: '七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使客户缩短了产品从个想法到上线的距离。'
+                        }, {
+                            id: '1',
+                            name: 'video2',
+                            href: '#2',
+                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu.mp4',
+                            poster: './img/campus/slider/Video-2.jpg',
+                            contentType: 'video/mp4',
+                            desc_title: '七牛 2017 校园招聘',
+                            desc: 'Hello World, Crazy Go!<br>七牛，期待你的加入！'
+                        }],
+                        styleObject: null,
+                        videoID: 0,
+                        showModal: false,
+                        readyPlayId: '',
+                        readyPlaySrc: '',
+                        playing: null,
+                        stopPlayer: null
+
+                    }
+                },
+                computed: {
+                    getClass: {
+                        get: function() {
+                            var videoArray = this.videoData;
+                            return {
+                                width: videoArray.length * 660 + 'px',
+                                left: this.currentLeft
+                            }
+                        },
+                        set: function(currentIdx) {
+                            this.currentLeft = -660 * currentIdx + 'px';
+                            this.videoID = currentIdx;
+
+                        }
+                    },
+                    setVideoSrc: {
+                        get: function() {
+                            // this.readyPlaySrc;
+
+                        },
+                        set: function(currentVideoSrc) {
+                            this.readyPlaySrc = currentVideoSrc;
+                        }
+                    },
+                    setVideoId: {
+                        get: function() {
+                            // this.readyPlayId;
+
+                        },
+                        set: function(currentVideoId) {
+                            this.readyPlayId = currentVideoId;
+                            console.log("Set Video" + currentVideoId);
+                        }
+                    },
+                    stopVideo: {
+                        get: function() {
+                            // this.stopPlayer;
+
+                        },
+                        set: function(currentVideoId) {
+                            // console.log(this.stopPlayer);
+                        }
+                    }
+                },
+                methods: {
+                    turn: function(i) {
+                        //首先是让now = 1
+                        var now = this.currentIdx + i;
+                        var videoArray = this.videoData;
+                        // console.log(now)
+                        // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
+                        if (now < 0) {
+                            now = 0;
+                            console.log("前面已经没有啦")
+                        }
+                        //循环显示
+                        if (now >= videoArray.length) {
+                            now = now - videoArray.length;
+                            // console.log(now)
+                        }
+                        this.getClass = now;
+                        this.currentIdx = now;
+                        console.log("当前视频 ID :" + this.currentIdx);
+                    },
+                    autoPlay: function() {
+                        var _that = this;
+                        this.timer = setInterval(function() {
+                            _that.turn(1)
+                        }, 3000);
+                        console.log("自动轮播中~")
+                    },
+                    pause: function() {
+                        clearInterval(this.timer)
+                    },
+                    turnToPrev: function() {
+                        // this.pause(); //先关掉定时器 然后在turn()
+                        this.turn(-1);
+                    },
+                    turnToNext: function() {
+                        // this.pause();
+                        this.turn(1);
+                    },
+                    play: function(videoId) {
+                        var clickVideoName = this.videoData[videoId].name;
+                        console.log("点击视频:" + videoId);
+                        //切换文字
+                        this.videoID = videoId;
+                        //设置 SRC
+                        this.setVideoSrc = this.videoData[videoId].src;
+                        //设置 ID name
+                        this.setVideoId = clickVideoName;
+                        //显示模态框
+                        this.showModal = true;
+
+                        /* videojs 这坑先不填,后期自定义皮肤 */
+
+                        //     // this.turnToNext();
+                        // 是否显示播放 btn
+                        // this.styleObject = videoId;
+                        // 初始化播放器
+                        // var player = videojs('video2', {
+                        //         /* Options */
+                        //     },
+                        //     function() {
+                        //         console.log('播放就绪');
+                        //         // 开始播放
+                        //         this.play();
+                        //         // 播放结束事件
+                        //         this.on('ended', function() {
+                        //             console.log('播放结束');
+                        //         });
+                        //     });
+
+                    }
+                },
+                ready: function() {
+                    if (this.autoplay == true) {
+                        this.autoPlay();
+                    }
+                }
+            })
+            // 全局注册Parent组件
+        Vue.component('video-slider', Parent);
+        var videoSlide = new Vue({
+            el: '#video-container'
+        })
     </script>
 </body>
 

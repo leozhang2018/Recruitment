@@ -15,7 +15,6 @@ a {
     visibility: hidden;
     clear: both;
 }
-/*轮播图片大小*/
 .slide-container{
   position: relative;
     height: 360px;
@@ -43,8 +42,9 @@ a {
             width: 640px;
             height: 360px;
             float: left;
-            padding-right: 20px;
+            margin-right: 20px;
             position: relative;
+            background-color:#000;
             a {
                 display: block;
             }
@@ -53,12 +53,15 @@ a {
                 height: 360px;
                 vertical-align: top;
             }
+            img:hover {
+                opacity:0.4;
+            }
         }
     }
 }
 
 .slide-animate {
-    transition: all 1s;
+    transition: all 0.8s;
 }
 /*
 	button
@@ -106,6 +109,7 @@ a {
         background-image: url("../img/campus/slider/play.png");
         background-size: contain;
         opacity: 0.7;
+        cursor: pointer;
     }
     .player_pause:hover {
         opacity: 1;
@@ -118,7 +122,7 @@ a {
 .Active {
     display: block;
 }
-/*src="http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4?v2"*/
+
 .slogan {
     position: relative;
     display: block;
@@ -256,7 +260,7 @@ a {
 .modal-container {
     width: 1280px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #000;
     border-radius: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all 0.3s ease;
@@ -267,17 +271,21 @@ a {
     color: #42b983;
 }
 .modal-body {
-    margin: 20px 0;
+    // margin: 20px 0;
 }
 .modal-default-button {
     float: right;
-    width: 50px;
-    margin-right: -50px;
-    height: 30px;
+    width: 32px;
+    margin-right: -32px;
+    margin-top: -16px;
+    height: 32px;
     display: block;
     position: relative;
-    background-color: blue;
-    border-radius: 4px;
+    // background-color: #;
+    border-radius: 16px;
+    background-image: url("../img/campus/slider/Close.png");
+    background-size: cover;
+
 }
 /*
  * the following styles are auto-applied to elements with
