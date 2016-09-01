@@ -13,156 +13,499 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/campus.css">
     <link rel="stylesheet" href="./css/video-slider.css">
+    <link rel="stylesheet" href="./css/campus-compon.css">
 </head>
 
 <body class="recruiting">
 
     {{> ./partials/header }}
+    <div id="campusJobView">
+        <section class="title-banner">
+            <div class="banner-content">
+                <h2 class="banner-title">HELLO WORLD, CRAZY GO!</h2>
+                <h2 class="title">极客世界，即刻出发！</h2>
+                <h2 class="title-start">七牛 2017 校园招聘</h2>
+            </div>
+        </section>
+        <section class="banner"></section>
+        <router-view></router-view>
+    </div>
 
-    <section class="title-banner">
-        <div class="banner-content">
-            <h2 class="banner-title">HELLO WORLD, CRAZY GO!</h2>
-            <h2 class="title">极客世界，即刻出发！</h2>
-            <h2 class="title-start">七牛 2017 校园招聘</h2>
-        </div>
-    </section>
+    {{> ./partials/footer }}
 
-    <section class="banner"></section>
+    <template id="campus">
+      <div class="job-wrap">
 
-    <section class="campus-jobs">
-        <div class="campus-jobs-content">
-            <h2>这些机会，期待你加入</h2>
-            <p>我们是一个简单的团队，希望成就不简单的事。
-                <br> 我们是一群充满热情，追求创新的人，期待遇见同样的你。
-            </p>
-            <a href="#">查看社招岗位</a>
-            <ul class="job-list">
-                <li class="job-item job-tech">
-                    <div class="job-img"></div>
-                    <p class="job-desc">技术</p>
+
+        <div class="campus-job-list">
+            <ul class="nav nav-tabs">
+                <li v-if="jobInfo.tech.length" :class="currentPath == '/campus/tech' ? 'active': ''">
+                    <a v-link="{ path: '/campus/tech'}">技术</a>
                 </li>
-                <li class="job-item job-business">
-                    <div class="job-img"></div>
-                    <p class="job-desc">市场</p>
+
+                <li v-if="jobInfo.business.length" :class="currentPath == '/campus/business' ? 'active': ''">
+                    <a v-link="{ path: '/campus/business'}">业务</a>
                 </li>
-                <li class="job-item job-product">
-                    <div class="job-img"></div>
-                    <p class="job-desc">产品</p>
+
+                <li v-if="jobInfo.product.length" :class="currentPath == '/campus/product' ? 'active': ''">
+                    <a v-link="{ path: '/campus/product'}">产品</a>
                 </li>
-                <li class="job-item job-design">
-                    <div class="job-img"></div>
-                    <p class="job-desc">设计</p>
+
+                <li v-if="jobInfo.design.length" :class="currentPath == '/campus/design' ? 'active': ''">
+                    <a v-link="{ path: '/campus/design'}">设计</a>
                 </li>
-                <li class="job-item job-marketing">
-                    <div class="job-img"></div>
-                    <p class="job-desc">销售</p>
+
+                <li v-if="jobInfo.marketing.length" :class="currentPath == '/campus/marketing' ? 'active': ''">
+                    <a v-link="{ path: '/campus/marketing'}">销售</a>
                 </li>
-                <li class="job-item job-function">
-                    <div class="job-img"></div>
-                    <p class="job-desc">职能</p>
+
+                <li v-if="jobInfo.function.length" :class="currentPath == '/campus/function' ? 'active': ''">
+                    <a v-link="{ path: '/campus/function'}">职能</a>
                 </li>
+
+                <div class="dropdown">
+                    <span class="dropbtn">全部地点</span>
+                    <span class="arrow"></span>
+                    <div class="dropdown-content">
+                        <a href="#1">北京</a>
+                        <a href="#2">上海</a>
+                        <a href="#3">杭州</a>
+                        <a href="#4">广州</a>
+                    </div>
+
+                </div>
             </ul>
-        </div>
-    </section>
-    <span class="border-line"></span>
 
-    <section class="campus-process" id="campus-process">
-        <h2 class="process-title">校招流程</h2>
-        <div class="process-container">
-            <div class="nav-tab">
-                <ul class="tab-list">
-                    <li class="tab-item">
-                        <a v-link="{ path: '/advanced',activeClass: 'active'}">提前批内推</a>
-                    </li>
-                    <li class="tab-item">
-                        <span></span>
-                    </li>
-                    <li class="tab-item">
-                        <a v-link="{ path: '/unified',activeClass: 'active'}">统一校招</a>
-                    </li>
-                </ul>
-            </div>
-            <!--用于渲染匹配的组件 此处为 -->
+        </div>
+        <div class="job-list-detail">
             <router-view></router-view>
-            <template id="unified">
-                <ul class="process-list">
-                    <li class="process-item">
-                        <span class="time">8 月底 － 9 月底</span>
-                        <span class="event">笔试报名</span>
-                        <p class="desc">此次校招不提前收简历，请点击链接报名笔试完成申请。
-                            <br>我们会向所有报名的学生发送笔试通知，并邀请通过的学生投递简历。
-                        </p>
-                    </li>
-                    <li class="process-item">
-                        <span class="time">9 月底 － 10 月初</span>
-                        <span class="event">线上笔试</span>
-                        <p class="desc">线上笔试将分为３个岗位，2 个批次。
-                            <br>请同学们根据自身时间安排，挑选相应的场次参加。
-                        </p>
-                    </li>
-                    <li class="process-item">
-                        <span class="time">10 月初 － 10 月中</span>
-                        <span class="event">面试</span>
-                        <p class="desc">我们将根据意向工作地及目前所在城市，协调安排面试形式及地点。
-                            <br>外地学生会尽量安排远程面试，请随时保持手机畅通。
-                        </p>
-                    </li>
-                    <li class="process-item">
-                        <span class="time">10 月底 － 11 月初</span>
-                        <span class="event">发放 Offer</span>
-                        <p class="desc">我们会给面试通过的同学发放 Offer。</p>
-                    </li>
-                </ul>
-            </template>
-            <template id="advanced">
-                <ul class="process-list">
-                    <li class="process-item">
-                        <span class="time">8月10日~9月10日</span>
-                        <span class="event">简历内推</span>
-                        <p class="desc">七牛员工和校园大使很乐意帮你提前拿到校招 offer。
-                            <br>若内推不通过，不会影响正式校招，依然可参加线上笔试。
-                        </p>
-                    </li>
-                    <li class="process-item">
-                        <span class="time">8月22日~9月23日</span>
-                        <span class="event">面试</span>
-                        <p class="desc"> 内推简历无需参加笔试，若简历筛选通过将收到面试邀请。
-                            <br>外地学生会安排远程面试，请随时保持手机畅通。
-                        </p>
-                    </li>
-                    <li class="process-item">
-                        <span class="time">９月底～10月初</span>
-                        <span class="event">提前 offer</span>
-                        <p class="desc">我们会在正式笔试开始前发出部分 offer，希望提前认识你。
-                        </p>
-                    </li>
-                </ul>
-            </template>
-
         </div>
 
-    </section>
+      </div>
+    </template>
 
-    <section class="campus-journey">
-        <div class="journey-map">
-
+    <!-- 列表模板 -->
+    <template id="tech">
+        <div class="job-title-content">
+            <h2>技术类</h2>
+            <h3>开放职位</h3>
         </div>
-        <div class="journey-desc">
-            <div class="journey-desc-content">
-                <h2>宣讲行程</h2>
-                <p>
-                    我们将会在上海、杭州、南京、合肥、北京、武汉等城市进行校园宣讲会，具体时间待定，敬请期待。
-                </p>
+        <div class="list-items">
+            <dl v-link="{ name: 'techdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in tech" class="list-onejob campusJob">
+                <dt>{{ item.job_title }}</dt>
+                <dd class="place">{{ item.place }}</dd>
+                <dd class="pubdate">发布日期：{{ item.time }}</dd>
+            </dl>
+        </div>
+    </template>
+
+
+    <template id="business">
+        <div class="job-title-content">
+            <h2>销售类</h2>
+            <h3>开放职位</h3>
+        </div>
+        <div class="list-items">
+            <dl v-link="{ name: 'businessdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in business" class="list-onejob campusJob">
+                <dt>{{ item.job_title }}</dt>
+                <dd class="place">{{ item.place }}</dd>
+                <dd class="pubdate">发布日期：{{ item.time }}</dd>
+            </dl>
+        </div>
+    </template>
+
+    <template id="product">
+        <div class="job-title-content">
+            <h2>产品类</h2>
+            <h3>开放职位</h3>
+        </div>
+        <div class="list-items">
+            <dl v-link="{ name: 'productdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in product" class="list-onejob campusJob" data-id="6518">
+                <dt>{{ item.job_title }}</dt>
+                <dd class="place">{{ item.place }}</dd>
+                <dd class="pubdate">发布日期：{{ item.time }}</dd>
+            </dl>
+        </div>
+    </template>
+
+
+    <template id="design">
+        <div class="job-title-content">
+            <h2>设计类</h2>
+            <h3>开放职位</h3>
+        </div>
+        <div class="list-items">
+            <dl v-link="{ name: 'designdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in design" class="list-onejob campusJob" data-id="6518">
+                <dt>{{ item.job_title }}</dt>
+                <dd class="place">{{ item.place }}</dd>
+                <dd class="pubdate">发布日期：{{ item.time }}</dd>
+            </dl>
+        </div>
+    </template>
+
+
+    <template id="marketing">
+        <div class="job-title-content">
+            <h2>销售类</h2>
+            <h3>开放职位</h3>
+        </div>
+        <div class="list-items">
+            <dl v-link="{ name: 'marketingdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in marketing" class="list-onejob campusJob" data-id="6518">
+                <dt>{{ item.job_title }}</dt>
+                <dd class="place">{{ item.place }}</dd>
+                <dd class="pubdate">发布日期：{{ item.time }}</dd>
+            </dl>
+        </div>
+    </template>
+
+
+    <template id="jobfunction">
+        <div class="job-title-content">
+            <h2>职能类</h2>
+            <h3>开放职位</h3>
+        </div>
+        <div class="list-items">
+            <dl v-link="{ name: 'jobfunctiondetail', params: {id: item.id,cate:item.job_title} }" v-for="item in jobfunction" class="list-onejob campusJob" data-id="6518">
+                <dt>{{ item.job_title }}</dt>
+                <dd class="place">{{ item.place }}</dd>
+                <dd class="pubdate">发布日期：{{ item.time }}</dd>
+            </dl>
+        </div>
+    </template>
+
+    <template id="social">
+        <div>
+            <h1>社会招聘</h1>
+            <p>This is the tutorial about vue-router.</p>
+        </div>
+    </template>
+
+    <!-- 技术职位详情 -->
+    <template id="techjobDetail">
+        <div class="job-detail">
+            <div class="back-to-list">
+                <span></span>
+                <a href="#!/campus/tech">返回职位列表</a>
+            </div>
+
+            <div class="campus-job-desc">
+                <div class="campus-job-desc-content">
+                    <h3 class="job-title">{{jobInfo[$route.params.id].job_title}}</h3>
+                    <p class="job-place">工作地点:&nbsp&nbsp{{jobInfo[$route.params.id].place}}</p>
+                    <p class="pub-date">职位发布于:&nbsp&nbsp{{jobInfo[$route.params.id].time}}</p>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+                <div class="job-duty-content">
+                    <h2 class="job-duty">岗位职责</h2>
+                    <ul class="duty-list">
+                        <li v-for="duty in jobInfo[$route.params.id].duty">{{duty}}</li>
+                    </ul>
+                </div>
+                <div class="job-req-content">
+                    <h2 class="job-duty">任职要求</h2>
+                    <ul class="req-list">
+                        <li v-for="req in jobInfo[$route.params.id].requirements">{{req}}</li>
+                    </ul>
+                </div>
+                <div class="job-pro-content">
+                    <h2 class="job-duty">加分项</h2>
+                    <ul class="pro-list">
+                        <li v-for="pro in jobInfo[$route.params.id].pro">{{pro}}</li>
+                    </ul>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
             </div>
         </div>
-    </section>
-    <section class="they-said" id="app">
+    </template>
 
-        <div class="they-said-content">
-            <text-slider></text-slider>
+    <!-- 业务职位详情描述 -->
+    <template id="businessjobDetail">
+        <div class="job-detail">
+            <div class="back-to-list">
+                <span></span>
+                <a href="#!/campus/business">返回职位列表</a>
+            </div>
+
+            <div class="campus-job-desc">
+                <div class="campus-job-desc-content">
+                    <h3 class="job-title">{{jobInfo[$route.params.id].job_title}}</h3>
+                    <p class="job-place">工作地点:&nbsp&nbsp{{jobInfo[$route.params.id].place}}</p>
+                    <p class="pub-date">职位发布于:&nbsp&nbsp{{jobInfo[$route.params.id].time}}</p>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+                <div class="job-duty-content">
+                    <h2 class="job-duty">岗位职责</h2>
+                    <ul class="duty-list">
+                        <li v-for="duty in jobInfo[$route.params.id].duty">{{duty}}</li>
+                    </ul>
+                </div>
+                <div class="job-req-content">
+                    <h2 class="job-duty">任职要求</h2>
+                    <ul class="req-list">
+                        <li v-for="req in jobInfo[$route.params.id].requirements">{{req}}</li>
+                    </ul>
+                </div>
+                <div class="job-pro-content">
+                    <h2 class="job-duty">加分项</h2>
+                    <ul class="pro-list">
+                        <li v-for="pro in jobInfo[$route.params.id].pro">{{pro}}</li>
+                    </ul>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+            </div>
         </div>
+    </template>
 
-    </section>
+
+    <!-- 产品职位详情描述 -->
+    <template id="productjobDetail">
+        <div class="job-detail">
+            <div class="back-to-list">
+                <span></span>
+                <a href="#!/campus/product">返回职位列表</a>
+            </div>
+
+            <div class="campus-job-desc">
+                <div class="campus-job-desc-content">
+                    <h3 class="job-title">{{jobInfo[$route.params.id].job_title}}</h3>
+                    <p class="job-place">工作地点:&nbsp&nbsp{{jobInfo[$route.params.id].place}}</p>
+                    <p class="pub-date">职位发布于:&nbsp&nbsp{{jobInfo[$route.params.id].time}}</p>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+                <div class="job-duty-content">
+                    <h2 class="job-duty">岗位职责</h2>
+                    <ul class="duty-list">
+                        <li v-for="duty in jobInfo[$route.params.id].duty">{{duty}}</li>
+                    </ul>
+                </div>
+                <div class="job-req-content">
+                    <h2 class="job-duty">任职要求</h2>
+                    <ul class="req-list">
+                        <li v-for="req in jobInfo[$route.params.id].requirements">{{req}}</li>
+                    </ul>
+                </div>
+                <div class="job-pro-content">
+                    <h2 class="job-duty">加分项</h2>
+                    <ul class="pro-list">
+                        <li v-for="pro in jobInfo[$route.params.id].pro">{{pro}}</li>
+                    </ul>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- 设计职位详情描述 -->
+    <template id="designjobDetail">
+        <div class="job-detail">
+            <div class="back-to-list">
+                <span></span>
+                <a href="#!/campus/design">返回职位列表</a>
+            </div>
+
+            <div class="campus-job-desc">
+                <div class="campus-job-desc-content">
+                    <h3 class="job-title">{{jobInfo[$route.params.id].job_title}}</h3>
+                    <p class="job-place">工作地点:&nbsp&nbsp{{jobInfo[$route.params.id].place}}</p>
+                    <p class="pub-date">职位发布于:&nbsp&nbsp{{jobInfo[$route.params.id].time}}</p>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+                <div class="job-duty-content">
+                    <h2 class="job-duty">岗位职责</h2>
+                    <ul class="duty-list">
+                        <li v-for="duty in jobInfo[$route.params.id].duty">{{duty}}</li>
+                    </ul>
+                </div>
+                <div class="job-req-content">
+                    <h2 class="job-duty">任职要求</h2>
+                    <ul class="req-list">
+                        <li v-for="req in jobInfo[$route.params.id].requirements">{{req}}</li>
+                    </ul>
+                </div>
+                <div class="job-pro-content">
+                    <h2 class="job-duty">加分项</h2>
+                    <ul class="pro-list">
+                        <li v-for="pro in jobInfo[$route.params.id].pro">{{pro}}</li>
+                    </ul>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- 销售职位详情描述 -->
+    <template id="marketingjobDetail">
+        <div class="job-detail">
+            <div class="back-to-list">
+                <span></span>
+                <a href="#!/campus/marketing">返回职位列表</a>
+            </div>
+
+            <div class="campus-job-desc">
+                <div class="campus-job-desc-content">
+                    <h3 class="job-title">{{jobInfo[$route.params.id].job_title}}</h3>
+                    <p class="job-place">工作地点:&nbsp&nbsp{{jobInfo[$route.params.id].place}}</p>
+                    <p class="pub-date">职位发布于:&nbsp&nbsp{{jobInfo[$route.params.id].time}}</p>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+                <div class="job-duty-content">
+                    <h2 class="job-duty">岗位职责</h2>
+                    <ul class="duty-list">
+                        <li v-for="duty in jobInfo[$route.params.id].duty">{{duty}}</li>
+                    </ul>
+                </div>
+                <div class="job-req-content">
+                    <h2 class="job-duty">任职要求</h2>
+                    <ul class="req-list">
+                        <li v-for="req in jobInfo[$route.params.id].requirements">{{req}}</li>
+                    </ul>
+                </div>
+                <div class="job-pro-content">
+                    <h2 class="job-duty">加分项</h2>
+                    <ul class="pro-list">
+                        <li v-for="pro in jobInfo[$route.params.id].pro">{{pro}}</li>
+                    </ul>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+
+
+    <!-- 职能职位详情描述 -->
+    <template id="functionjobDetail">
+        <div class="job-detail">
+            <div class="back-to-list">
+                <span></span>
+                <a href="#!/campus/function">返回职位列表</a>
+            </div>
+
+            <div class="campus-job-desc">
+                <div class="campus-job-desc-content">
+                    <h3 class="job-title">{{jobInfo[$route.params.id].job_title}}</h3>
+                    <p class="job-place">工作地点:&nbsp&nbsp{{jobInfo[$route.params.id].place}}</p>
+                    <p class="pub-date">职位发布于:&nbsp&nbsp{{jobInfo[$route.params.id].time}}</p>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+                <div class="job-duty-content">
+                    <h2 class="job-duty">岗位职责</h2>
+                    <ul class="duty-list">
+                        <li v-for="duty in jobInfo[$route.params.id].duty">{{duty}}</li>
+                    </ul>
+                </div>
+                <div class="job-req-content">
+                    <h2 class="job-duty">任职要求</h2>
+                    <ul class="req-list">
+                        <li v-for="req in jobInfo[$route.params.id].requirements">{{req}}</li>
+                    </ul>
+                </div>
+                <div class="job-pro-content">
+                    <h2 class="job-duty">加分项</h2>
+                    <ul class="pro-list">
+                        <li v-for="pro in jobInfo[$route.params.id].pro">{{pro}}</li>
+                    </ul>
+                    <div class="apply-btn"><a href="http://wj.qq.com/s/692657/5975">立即申请</a></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+
+    <template id="index">
+        <section class="campus-jobs">
+            <div class="campus-jobs-content">
+                <h2>这些机会，期待你加入</h2>
+                <p>我们是一个简单的团队，希望成就不简单的事。
+                    <br> 我们是一群充满热情，追求创新的人，期待遇见同样的你。
+                </p>
+                <a href="#!/campus">查看校招岗位</a>
+                <ul class="job-list">
+                    <li class="job-item job-tech">
+                        <div class="job-img"></div>
+                        <p class="job-desc">技术</p>
+                    </li>
+                    <li class="job-item job-business">
+                        <div class="job-img"></div>
+                        <p class="job-desc">市场</p>
+                    </li>
+                    <li class="job-item job-product">
+                        <div class="job-img"></div>
+                        <p class="job-desc">产品</p>
+                    </li>
+                    <li class="job-item job-design">
+                        <div class="job-img"></div>
+                        <p class="job-desc">设计</p>
+                    </li>
+                    <li class="job-item job-marketing">
+                        <div class="job-img"></div>
+                        <p class="job-desc">销售</p>
+                    </li>
+                    <li class="job-item job-function">
+                        <div class="job-img"></div>
+                        <p class="job-desc">职能</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <span class="border-line"></span>
+
+        <section class="campus-process" id="campus-process">
+            <h2 class="process-title">校招流程</h2>
+            <div class="process-container">
+                <div class="nav-tab">
+                    <ul class="tab-list">
+                        <li class="tab-item">
+                            <a v-link="{ path: '/index/advanced',activeClass: 'active'}">提前批内推</a>
+                        </li>
+                        <li class="tab-item">
+                            <span></span>
+                        </li>
+                        <li class="tab-item">
+                            <a v-link="{ path: '/index/unified',activeClass: 'active'}">统一校招</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--用于渲染匹配的组件 此处为校招行程-->
+                <router-view></router-view>
+            </div>
+        </section>
+
+        <section class="campus-journey">
+            <div class="journey-map">
+            </div>
+            <div class="journey-desc">
+                <div class="journey-desc-content">
+                    <h2>宣讲行程</h2>
+                    <p>
+                        我们将会在上海、杭州、南京、合肥、北京、武汉等城市进行校园宣讲会，具体时间待定，敬请期待。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="they-said" id="app">
+            <div class="they-said-content">
+                <text-slider></text-slider>
+            </div>
+        </section>
+
+        <span class="border-line"></span>
+        <section class="video-banner" id="video-container">
+            <video-slider>
+            </video-slider>
+        </section>
+
+    </template>
+
+
+
+
     <template id="text-slider">
         <ul class="clearfix slide-animate" v-bind:style='getClass'>
             <li v-for="item in textData" v-bind:current="current">
@@ -194,15 +537,64 @@
             </div>
         </div>
     </template>
-    <span class="border-line"></span>
 
+    <!-- 统一行程模板 -->
+    <template id="unified">
+        <ul class="process-list">
+            <li class="process-item">
+                <span class="time">8 月底 － 9 月底</span>
+                <span class="event">笔试报名</span>
+                <p class="desc">此次校招不提前收简历，请点击链接报名笔试完成申请。
+                    <br>我们会向所有报名的学生发送笔试通知，并邀请通过的学生投递简历。
+                </p>
+            </li>
+            <li class="process-item">
+                <span class="time">9 月底 － 10 月初</span>
+                <span class="event">线上笔试</span>
+                <p class="desc">线上笔试将分为３个岗位，2 个批次。
+                    <br>请同学们根据自身时间安排，挑选相应的场次参加。
+                </p>
+            </li>
+            <li class="process-item">
+                <span class="time">10 月初 － 10 月中</span>
+                <span class="event">面试</span>
+                <p class="desc">我们将根据意向工作地及目前所在城市，协调安排面试形式及地点。
+                    <br>外地学生会尽量安排远程面试，请随时保持手机畅通。
+                </p>
+            </li>
+            <li class="process-item">
+                <span class="time">10 月底 － 11 月初</span>
+                <span class="event">发放 Offer</span>
+                <p class="desc">我们会给面试通过的同学发放 Offer。</p>
+            </li>
+        </ul>
+    </template>
 
-    <section class="video-banner" id="video-container">
-        <video-slider>
-        </video-slider>
-    </section>
-
-
+    <!-- 提前行程模板 -->
+    <template id="advanced">
+        <ul class="process-list">
+            <li class="process-item">
+                <span class="time">8月10日~9月10日</span>
+                <span class="event">简历内推</span>
+                <p class="desc">七牛员工和校园大使很乐意帮你提前拿到校招 offer。
+                    <br>若内推不通过，不会影响正式校招，依然可参加线上笔试。
+                </p>
+            </li>
+            <li class="process-item">
+                <span class="time">8月22日~9月23日</span>
+                <span class="event">面试</span>
+                <p class="desc"> 内推简历无需参加笔试，若简历筛选通过将收到面试邀请。
+                    <br>外地学生会安排远程面试，请随时保持手机畅通。
+                </p>
+            </li>
+            <li class="process-item">
+                <span class="time">９月底～10月初</span>
+                <span class="event">提前 offer</span>
+                <p class="desc">我们会在正式笔试开始前发出部分 offer，希望提前认识你。
+                </p>
+            </li>
+        </ul>
+    </template>
 
     <!-- 视频轮播模板 -->
     <template id="video-slider">
@@ -246,6 +638,7 @@
 
         </modal>
     </template>
+    <!-- 视频弹窗模板 -->
 
     <template id="modal-template">
         <div class="modal-mask" v-show="show" transition="modal" v-if="readyPlaySrc !==''">
@@ -267,9 +660,10 @@
 
 
 
-    {{> ./partials/footer }}
+
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
+    <script src="js/compus-compon.js"></script>
     <script>
         // 统一校招组件
         var Unified = Vue.extend({
@@ -291,27 +685,267 @@
 
         /* 提前批组件*/
         var Advanced = Vue.extend({
-                template: '#advanced'
+            template: '#advanced'
+        })
+
+        /*首页组件*/
+        var Index = Vue.extend({
+                template: '#index'
             })
-            /* 创建路由器  */
+            /////////////////////////////////////////////////////////////////////////////////////////////////
+            //校招组件
+        var Campus = Vue.extend({
+            template: '#campus',
+            data: function() {
+                return {
+                    msg: '校招组件',
+                    currentPath: '',
+                    jobInfo: jobInfo
+                }
+            },
+            route: {
+                data: function(transition) {
+                    transition.next({
+                        currentPath: transition.to.path
+                    })
+
+
+                }
+            }
+        })
+
+        //社招组件
+        var Index = Vue.extend({
+                template: '#index'
+            })
+            //招聘标签
+
+        //技术 tab
+        var Tech = Vue.extend({
+            template: '#tech',
+            data: function() {
+                return {
+                    msg: '技术组件',
+                    currentPath: '',
+                    tech: jobInfo.tech,
+
+                }
+            }
+        })
+
+        var Business = Vue.extend({
+            template: '#business',
+            data: function() {
+                return {
+                    msg: '业务组件',
+                    currentPath: '',
+                    business: jobInfo.business
+                }
+            }
+        })
+
+        var Product = Vue.extend({
+            template: '#product',
+            data: function() {
+                return {
+                    msg: '产品组件',
+                    currentPath: '',
+                    product: jobInfo.product
+                }
+            }
+        })
+
+        var Design = Vue.extend({
+            template: '#design',
+            data: function() {
+                return {
+                    msg: '设计组件',
+                    currentPath: '',
+                    design: jobInfo.design
+                }
+            }
+        })
+
+        var Marketing = Vue.extend({
+            template: '#marketing',
+            data: function() {
+                return {
+                    msg: '市场组件',
+                    currentPath: '',
+                    marketing: jobInfo.marketing
+                }
+            }
+        })
+
+        var Jobfunction = Vue.extend({
+            template: '#jobfunction',
+            data: function() {
+                return {
+                    msg: '业务组件',
+                    currentPath: '',
+                    jobfunction: jobInfo.function
+                }
+            }
+        })
+
+
+        /*详情组件*/
+        //tech JD 详情
+        var techJobDetail = Vue.extend({
+            template: '#techjobDetail',
+            data: function() {
+                return {
+                    msg: 'tech 职位数据',
+                    currentPath: '',
+                    jobInfo: jobInfo.tech
+                }
+            }
+        })
+
+        //business JD 详情
+        var businessJobDetail = Vue.extend({
+            template: '#businessjobDetail',
+            data: function() {
+                return {
+                    msg: 'business 职位数据',
+                    jobInfo: jobInfo.business
+                }
+            }
+        })
+
+
+        //product JD 详情
+        var productJobDetail = Vue.extend({
+            template: '#productjobDetail',
+            data: function() {
+                return {
+                    msg: 'business 职位数据',
+                    jobInfo: jobInfo.product
+                }
+            }
+        })
+
+
+        //design JD 详情
+        var designJobDetail = Vue.extend({
+            template: '#designjobDetail',
+            data: function() {
+                return {
+                    msg: 'design 职位数据',
+                    jobInfo: jobInfo.design
+                }
+            }
+        })
+
+        //marketing JD 详情
+        var marketingJobDetail = Vue.extend({
+            template: '#marketingjobDetail',
+            data: function() {
+                return {
+                    msg: 'marketing 职位数据',
+                    jobInfo: jobInfo.marketing
+                }
+            }
+        })
+
+        //marketing JD 详情
+        var functionJobDetail = Vue.extend({
+                template: '#functionjobDetail',
+                data: function() {
+                    return {
+                        msg: 'function 职位数据',
+                        jobInfo: jobInfo.function
+                    }
+                }
+            })
+            /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        /* 创建路由器  */
         var router = new VueRouter()
             // 默认路由
         router.redirect({
-                '/': '/advanced'
+                '/': '/index/advanced',
+                '/index': '/index/advanced',
+                '/campus': '/campus/tech'
             })
             /* 创建路由映射  */
         router.map({
-                '/advanced': {
-                    component: Advanced,
-                    // 定义子路由
+                '/index': {
+                    component: Index,
+                    subRoutes: {
+                        '/advanced': {
+                            // This component will be rendered into Foo's <router-view>
+                            // when /foo is matched. Using an inline component definition
+                            // here for convenience.
+                            component: Advanced
+                        },
+                        '/unified': {
+                            // Bar will be rendered inside Foo's <router-view>
+                            // when /foo/bar is matched
+                            component: Unified
+                        }
+                    }
                 },
-                '/unified': {
-                    component: Unified
+                '/campus': {
+                    component: Campus,
+                    // 定义子路由
+                    subRoutes: {
+                        '/tech': {
+                            name: 'tech',
+                            component: Tech
+                        },
+
+                        'techdetail/:id': {
+                            name: 'techdetail',
+                            component: techJobDetail
+                        },
+                        '/business': {
+                            name: 'business',
+                            component: Business
+                        },
+                        'businessdetail/:id': {
+                            name: 'businessdetail',
+                            component: businessJobDetail
+                        },
+                        '/product': {
+                            name: 'product',
+                            component: Product
+                        },
+                        'productdetail/:id': {
+                            name: 'productdetail',
+                            component: productJobDetail
+                        },
+                        '/design': {
+                            name: 'design',
+                            component: Design
+                        },
+                        'designdetail/:id': {
+                            name: 'designdetail',
+                            component: designJobDetail
+                        },
+                        '/marketing': {
+                            name: 'marketing',
+                            component: Marketing
+                        },
+                        'marketingdetail/:id': {
+                            name: 'marketingdetail',
+                            component: marketingJobDetail
+                        },
+                        '/function': {
+                            name: 'jobfunction',
+                            component: Jobfunction
+                        },
+                        'functiondetail/:id': {
+                            name: 'jobfunctiondetail',
+                            component: functionJobDetail
+                        },
+                    }
                 }
             })
             /* 启动路由  */
         var CampusProcessTab = Vue.extend({})
-        router.start(CampusProcessTab, '#campus-process')
+        router.start(CampusProcessTab, '#campusJobView')
     </script>
     <script type="text/javascript">
         Vue.component('text-slider', {
@@ -639,6 +1273,13 @@
             })
             // 全局注册Parent组件
         Vue.component('video-slider', Parent);
+
+
+
+
+
+
+
         var videoSlide = new Vue({
             el: '#video-container'
         })

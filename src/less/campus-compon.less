@@ -1,0 +1,317 @@
+.job-wrap {
+    margin-top: 115px;
+    height: 1300px;
+    width: 100%;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    color: #0099FF;
+    background-color: #ffffff;
+    border: 0;
+    border-bottom: 2px solid #1989FA;
+    cursor: default;
+}
+.nav > li > a,
+.nav-tabs > li > a:hover {
+    position: relative;
+    display: block;
+    padding: 15px 0;
+    margin-right: 40px;
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 28px;
+}
+.nav > li > a:hover,
+.nav-tabs > li > a:hover {
+    font-size: 16px;
+    color: #0099FF;
+    background-color: inherit;
+    /*transition: all 0.3s ease;*/
+}
+.list-items {
+    width: 700px;
+    float: right;
+    text-align: left;
+    font-size: 13px;
+    line-height: 28px;
+    background-color: yellow;
+}
+.list-items .list-onejob {
+    padding: 14px 0;
+    border-bottom: 1px solid #ebeef5;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.list-items .list-onejob:first-child {
+    padding-top: 0px;
+}
+dd,
+dl,
+dt,
+li,
+ol,
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.list-items .list-onejob dt {
+    float: left;
+    width: 40%;
+    margin-right: 20px;
+    color: #525866;
+}
+.list-items .list-onejob dd {
+    float: left;
+    color: #7a8599;
+    padding: 0;
+}
+.list-items .list-onejob .place {
+    width: 240px;
+    margin-right: 20px;
+}
+/*切换 tab */
+.campus-job-list {
+    width: 1060px;
+    position: relative;
+    margin: 0 auto;
+    background-color: yellow;
+}
+.campus-job-list ul {
+    overflow: hidden;
+    /*background-color: black;*/
+    border-bottom: 2px solid #e6e6e6;
+}
+.campus-job-list ul li {
+    float: left;
+    /*background-color: black;*/
+}
+/*下拉组件*/
+.campus-job-list .dropdown {
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+}
+.campus-job-list .dropdown .dropbtn {
+    background-color: red;
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 28px;
+}
+.campus-job-list .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 95px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.campus-job-list .dropdown .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.campus-job-list .dropdown .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.campus-job-list .dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    z-index: 999;
+}
+.campus-job-list .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.campus-job-list .dropdown .arrow {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 14px;
+    background-color: blue;
+}
+.job-list-detail {
+    width: 1060px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: blue;
+}
+.job-title-content {
+    background-color: red;
+    width: 136px;
+    float: left;
+    height: 86px;
+}
+.job-title-content h2,
+.job-title-content h3 {
+    font-size: 34px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 43px;
+    margin: 0;
+}
+.job-title-content h3 {
+    font-weight: 300;
+}
+/*详情页面*/
+.job-detail .back-to-list {
+    background-color: red;
+    float: left;
+}
+.job-detail .back-to-list a {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 28px;
+}
+.job-detail .back-to-list span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 12px;
+    background-color: grey;
+    background-image: url('../img/go.png');
+    background-size: cover;
+}
+.campus-job-desc {
+    width: 760px;
+    background-color: red;
+    float: right;
+}
+.campus-job-desc-content {
+    background-color: yellow;
+}
+.campus-job-desc-content .job-title {
+    font-size: 34px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 43px;
+}
+.campus-job-desc-content .job-place {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.campus-job-desc-content .pub-date {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.campus-job-desc-content .apply-btn {
+    margin-top: 40px;
+}
+.campus-job-desc-content .apply-btn a {
+    display: inline-block;
+    width: 96px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    background-color: #0099FF;
+    transition: all 0.3s ease;
+}
+.job-duty-content {
+    background-color: blue;
+    margin-top: 48px;
+}
+.job-duty-content .job-duty {
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 28px;
+    background-color: #fff;
+}
+.job-duty-content .duty-list {
+    /*margin: 10px 0px;*/
+    background-color: yellow;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.job-duty-content .duty-list li {
+    list-style-type: disc;
+    font-family: CoreSansN-45Regular;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.job-req-content {
+    background-color: #fff;
+    margin-top: 40px;
+}
+.job-req-content .job-duty {
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 28px;
+    background-color: #fff;
+}
+.job-req-content .req-list {
+    /*margin: 10px 0px;*/
+    background-color: yellow;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.job-req-content .req-list li {
+    list-style-type: disc;
+    font-family: CoreSansN-45Regular;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+/*加分项*/
+.job-pro-content {
+    background-color: #fff;
+    margin-top: 40px;
+}
+.job-pro-content .job-duty {
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 28px;
+    background-color: #fff;
+}
+.job-pro-content .pro-list {
+    /*margin: 10px 0px;*/
+    background-color: yellow;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.job-pro-content .pro-list li {
+    list-style-type: disc;
+    font-family: CoreSansN-45Regular;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.job-pro-content .apply-btn {
+    margin-top: 40px;
+}
+.job-pro-content .apply-btn a {
+    display: inline-block;
+    width: 96px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    background-color: #0099FF;
+    transition: all 0.3s ease;
+}

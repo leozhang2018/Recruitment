@@ -22,7 +22,7 @@ var paths = {
   page: 'src/*.mustache',
   partials: 'src/partials/*.mustache'
 }
- 
+
 gulp.task('clean', function() {
   return gulp.src( 'dist/**', { read: false })
     .pipe(rm())
@@ -66,7 +66,7 @@ gulp.task('script', function() {
 
 gulp.task('page', function() {
   return gulp.src(paths.page, { base: 'src' })
-    .pipe(mustache())
+    // .pipe(mustache())
     .pipe(rename({ extname: '.html' }))
     .pipe(gulp.dest('./dist'))
 })
