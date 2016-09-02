@@ -76,8 +76,8 @@
             background-size: cover;
         }
     }
-    .guide-content:hover{
-      background-color: #1679DB;
+    .guide-content:hover {
+        background-color: #1679DB;
     }
 }
 .recruiting .campus-jobs {
@@ -102,6 +102,19 @@
             color: #1989FA;
             letter-spacing: 0;
             line-height: 28px;
+            position: relative;
+        }
+        a:after {
+            display: inline-block;
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            top: 50%;
+            margin-top: -9px;
+            margin-left: 12px;
+            background-size: cover;
+            content: '';
+            background-image: url('../img/campus/Go.png');
         }
         .job-list {
             margin-top: 80px;
@@ -117,8 +130,8 @@
                 text-align: center;
                 // background-color: yellow;
             }
-            .job-item:first-child{
-              margin-left:-48px;
+            .job-item:first-child {
+                margin-left: -48px;
             }
             .job-tech .job-img {
                 background-image: url("../img/campus/tech.jpg");

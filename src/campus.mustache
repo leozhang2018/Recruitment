@@ -19,6 +19,7 @@
 <body class="recruiting">
 
     {{> ./partials/header }}
+
     <div id="campusJobView">
         <section class="title-banner">
             <div class="banner-content">
@@ -34,57 +35,54 @@
     {{> ./partials/footer }}
 
     <template id="campus">
-      <div class="job-wrap">
+        <div class="job-wrap">
+            <div class="campus-job-list">
+                <ul class="nav nav-tabs">
+                    <li v-if="jobInfo.tech.length" :class="currentPath == '/campus/tech' ? 'active': ''">
+                        <a v-link="{ path: '/campus/tech'}">技术</a>
+                    </li>
 
+                    <li v-if="jobInfo.business.length" :class="currentPath == '/campus/business' ? 'active': ''">
+                        <a v-link="{ path: '/campus/business'}">业务</a>
+                    </li>
 
-        <div class="campus-job-list">
-            <ul class="nav nav-tabs">
-                <li v-if="jobInfo.tech.length" :class="currentPath == '/campus/tech' ? 'active': ''">
-                    <a v-link="{ path: '/campus/tech'}">技术</a>
-                </li>
+                    <li v-if="jobInfo.product.length" :class="currentPath == '/campus/product' ? 'active': ''">
+                        <a v-link="{ path: '/campus/product'}">产品</a>
+                    </li>
 
-                <li v-if="jobInfo.business.length" :class="currentPath == '/campus/business' ? 'active': ''">
-                    <a v-link="{ path: '/campus/business'}">业务</a>
-                </li>
+                    <li v-if="jobInfo.design.length" :class="currentPath == '/campus/design' ? 'active': ''">
+                        <a v-link="{ path: '/campus/design'}">设计</a>
+                    </li>
 
-                <li v-if="jobInfo.product.length" :class="currentPath == '/campus/product' ? 'active': ''">
-                    <a v-link="{ path: '/campus/product'}">产品</a>
-                </li>
+                    <li v-if="jobInfo.marketing.length" :class="currentPath == '/campus/marketing' ? 'active': ''">
+                        <a v-link="{ path: '/campus/marketing'}">销售</a>
+                    </li>
 
-                <li v-if="jobInfo.design.length" :class="currentPath == '/campus/design' ? 'active': ''">
-                    <a v-link="{ path: '/campus/design'}">设计</a>
-                </li>
+                    <li v-if="jobInfo.function.length" :class="currentPath == '/campus/function' ? 'active': ''">
+                        <a v-link="{ path: '/campus/function'}">职能</a>
+                    </li>
 
-                <li v-if="jobInfo.marketing.length" :class="currentPath == '/campus/marketing' ? 'active': ''">
-                    <a v-link="{ path: '/campus/marketing'}">销售</a>
-                </li>
+                    <div class="dropdown">
+                        <span class="dropbtn">全部地点</span>
+                        <span class="arrow"></span>
+                        <div class="dropdown-content">
+                            <a href="#1">北京</a>
+                            <a href="#2">上海</a>
+                            <a href="#3">杭州</a>
+                            <a href="#4">广州</a>
+                        </div>
 
-                <li v-if="jobInfo.function.length" :class="currentPath == '/campus/function' ? 'active': ''">
-                    <a v-link="{ path: '/campus/function'}">职能</a>
-                </li>
-
-                <div class="dropdown">
-                    <span class="dropbtn">全部地点</span>
-                    <span class="arrow"></span>
-                    <div class="dropdown-content">
-                        <a href="#1">北京</a>
-                        <a href="#2">上海</a>
-                        <a href="#3">杭州</a>
-                        <a href="#4">广州</a>
                     </div>
+                </ul>
 
-                </div>
-            </ul>
-
+            </div>
+            <div class="job-list-detail">
+                <router-view></router-view>
+            </div>
         </div>
-        <div class="job-list-detail">
-            <router-view></router-view>
-        </div>
-
-      </div>
     </template>
 
-    <!-- 列表模板 -->
+    <!-- 职位列表模板 -->
     <template id="tech">
         <div class="job-title-content">
             <h2>技术类</h2>
@@ -184,7 +182,6 @@
     <template id="techjobDetail">
         <div class="job-detail">
             <div class="back-to-list">
-                <span></span>
                 <a href="#!/campus/tech">返回职位列表</a>
             </div>
 
@@ -608,7 +605,7 @@
             <div class="slogan-content">
                 <h2>七牛 2017 校园招聘</h2>
                 <p>Hello World crazy Go
-                    <br>&nbsp 七牛期待你的加入</p>
+                    <br>七牛期待你的加入</p>
             </div>
         </section>
         <div class="slide-container">
@@ -656,7 +653,6 @@
             </div>
         </div>
     </template>
-
 
 
 
@@ -714,13 +710,9 @@
             }
         })
 
-        //社招组件
-        var Index = Vue.extend({
-                template: '#index'
-            })
-            //招聘标签
 
-        //技术 tab
+
+        //技术 tab 招聘标签
         var Tech = Vue.extend({
             template: '#tech',
             data: function() {
@@ -979,11 +971,11 @@
                         href: '#',
                         imgsrc: './img/avatar/sy.png',
                         alt: '',
-                        content: '我是2015年5月25日加入七牛的。碰巧的是，我的入党日期也是5月25日，当时就有朋友开玩笑说在“我爱我”日这一天加入中国共产党是你送给自己最好的礼物，如今我也同样自豪的认为：在这一天加入七牛是我送给自己最好的礼物。'
+                        content: '我是 2015 年 5 月 25 日加入七牛的。碰巧的是，我的入党日期也是 5 月 25 日，当时就有朋友开玩笑说在“我爱我”日这一天加入中国共产党是你送给自己最好的礼物，如今我也同样自豪的认为：在这一天加入七牛是我送给自己最好的礼物。'
                     }, {
                         name: '陈心',
                         job_title: '后端开发工程师',
-                        graduate: '2016年毕业于上海交通大学',
+                        graduate: '2016 年毕业于上海交通大学',
                         href: '#',
                         imgsrc: './img/avatar/cx.png',
                         alt: '',
@@ -991,15 +983,15 @@
                     }, {
                         name: '罗轶斯',
                         job_title: '活动运营专员',
-                        graduate: '2015年毕业于四川音乐学院',
+                        graduate: '2015 年毕业于四川音乐学院',
                         href: '#',
                         imgsrc: './img/avatar/lys.png',
                         alt: '',
-                        content: '七牛给我的最大的感觉就是，工作氛围很好。在工作中，每一位小伙伴从专员到CMO，每个人都在认真负责着自己的工作，毫不懈怠，我觉得年轻人就应该在这种工作圈中工作，才会得到提升。所以一直庆幸选择了七牛。'
+                        content: '七牛给我的最大的感觉就是，工作氛围很好。在工作中，每一位小伙伴从专员到 CMO，每个人都在认真负责着自己的工作，毫不懈怠，我觉得年轻人就应该在这种工作圈中工作，才会得到提升。所以一直庆幸选择了七牛。'
                     }, {
                         name: '常龙',
                         job_title: '销售管培生',
-                        graduate: '2016年毕业于东北石油大学',
+                        graduate: '2016 年毕业于东北石油大学',
                         href: '#',
                         imgsrc: './img/avatar/cl.png',
                         alt: '',
@@ -1126,7 +1118,7 @@
                             name: 'video1',
                             href: 'javascript:void(0)',
                             src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4',
-                            poster: './img/campus/slider/Video-1.jpg',
+                            poster: './img/campus/slider/Video-2.jpg',
                             contentType: 'video/mp4',
                             desc_title: '七牛，缩短想法到产品的距离',
                             desc: '七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使客户缩短了产品从个想法到上线的距离。'
@@ -1134,8 +1126,8 @@
                             id: '1',
                             name: 'video2',
                             href: '#2',
-                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu.mp4',
-                            poster: './img/campus/slider/Video-2.jpg',
+                            src: 'http://7u2eut.com1.z0.glb.clouddn.com/HelloworldCrazygo.mp4',
+                            poster: './img/campus/slider/Video-1.jpg',
                             contentType: 'video/mp4',
                             desc_title: '七牛 2017 校园招聘',
                             desc: 'Hello World, Crazy Go!<br>七牛，期待你的加入！'
@@ -1273,12 +1265,6 @@
             })
             // 全局注册Parent组件
         Vue.component('video-slider', Parent);
-
-
-
-
-
-
 
         var videoSlide = new Vue({
             el: '#video-container'
