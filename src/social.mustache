@@ -28,7 +28,7 @@
         </section>
         <section class="banner">
             <div class="guide">
-                <a class="guide-content" href="#TODO">
+                <a class="guide-content" href="">
                     <div class="post-text">
                         <p>查看职位</p>
                     </div>
@@ -464,6 +464,7 @@
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
     <script src="js/social-compon.js"></script>
+    <script src="js/smoothscroll.js"></script>
     <script type="text/javascript">
         /*首页组件*/
         var Index = Vue.extend({
@@ -706,7 +707,18 @@
         router.start(SocialProcessTab, '#socialJobView')
     </script>
 
-
+    <script type="text/javascript">
+        // add event listener on load
+        window.addEventListener('load', function() {
+            // scroll into view
+            document.querySelector('.guide-content').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.campus-jobs-content').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
