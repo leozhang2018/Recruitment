@@ -50,8 +50,8 @@ gulp.task('style', function() {
     .pipe(less({ plugins: [autoprefix] }))
     .pipe(base64({
       extensions: ['png', 'jpg'],
-      // <= 10 KB
-      maxImageSize: 10 * 1024,
+      // <= 20 KB
+      maxImageSize: 20 * 1024,
       debug: false
     }))
     .pipe(minifyCss())

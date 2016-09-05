@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>校园招聘</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="keywords" content="">
@@ -23,9 +23,9 @@
     <div id="campusJobView">
         <section class="title-banner">
             <div class="banner-content">
-                <h2 class="banner-title">HELLO WORLD, CRAZY GO!</h2>
+                <h2 class="banner-title">HELLO, WORLD! CRAZY GO!</h2>
                 <h2 class="title">极客世界，即刻出发！</h2>
-                <h2 class="title-start">七牛 2017 校园招聘</h2>
+                <h2 class="title-start">七牛云 2017 校园招聘</h2>
             </div>
         </section>
         <section class="banner"></section>
@@ -43,7 +43,7 @@
                     </li>
 
                     <li v-if="jobInfo.business.length" :class="currentPath == '/campus/business' ? 'active': ''">
-                        <a v-link="{ path: '/campus/business'}">业务</a>
+                        <a v-link="{ path: '/campus/business'}">市场</a>
                     </li>
 
                     <li v-if="jobInfo.product.length" :class="currentPath == '/campus/product' ? 'active': ''">
@@ -418,31 +418,31 @@
             <div class="campus-jobs-content">
                 <h2>这些机会，期待你加入</h2>
                 <p>我们是一个简单的团队，希望成就不简单的事。
-                    <br> 我们是一群充满热情，追求创新的人，期待遇见同样的你。
+                    <br> 我们是一群充满热情、追求创新的人，期待遇见同样的你。
                 </p>
                 <a href="#!/campus">查看校招岗位</a>
                 <ul class="job-list">
-                    <li class="job-item job-tech">
+                    <li v-link="{ path: '/campus/tech'}" class="job-item job-tech">
                         <div class="job-img"></div>
                         <p class="job-desc">技术</p>
                     </li>
-                    <li class="job-item job-business">
+                    <li v-link="{ path: '/campus/business'}" class="job-item job-business">
                         <div class="job-img"></div>
                         <p class="job-desc">市场</p>
                     </li>
-                    <li class="job-item job-product">
+                    <li v-link="{ path: '/campus/product'}" class="job-item job-product">
                         <div class="job-img"></div>
                         <p class="job-desc">产品</p>
                     </li>
-                    <li class="job-item job-design">
+                    <li v-link="{ path: '/campus/design'}" class="job-item job-design">
                         <div class="job-img"></div>
                         <p class="job-desc">设计</p>
                     </li>
-                    <li class="job-item job-marketing">
+                    <li v-link="{ path: '/campus/marketing'}" class="job-item job-marketing">
                         <div class="job-img"></div>
                         <p class="job-desc">销售</p>
                     </li>
-                    <li class="job-item job-function">
+                    <li v-link="{ path: '/campus/function'}" class="job-item job-function">
                         <div class="job-img"></div>
                         <p class="job-desc">职能</p>
                     </li>
@@ -480,7 +480,7 @@
                 <div class="journey-desc-content">
                     <h2>宣讲行程</h2>
                     <p>
-                        我们将会在上海、杭州、南京、合肥、北京、武汉等城市进行校园宣讲会，具体时间待定，敬请期待。
+                        我们将会在上海、杭州、南京、合肥、北京、武汉、广州等城市进行校园宣讲会，具体时间待定，敬请期待。
                     </p>
                 </div>
             </div>
@@ -539,14 +539,14 @@
     <template id="unified">
         <ul class="process-list">
             <li class="process-item">
-                <span class="time">8 月底 － 9 月底</span>
+                <span class="time">9 月初 － 9 月底</span>
                 <span class="event">笔试报名</span>
                 <p class="desc">此次校招不提前收简历，请点击链接报名笔试完成申请。
                     <br>我们会向所有报名的学生发送笔试通知，并邀请通过的学生投递简历。
                 </p>
             </li>
             <li class="process-item">
-                <span class="time">9 月底 － 10 月初</span>
+                <span class="time">9 月中 － 9 月底</span>
                 <span class="event">线上笔试</span>
                 <p class="desc">线上笔试将分为３个岗位，2 个批次。
                     <br>请同学们根据自身时间安排，挑选相应的场次参加。
@@ -597,15 +597,14 @@
     <template id="video-slider">
         <section v-if="videoID == 0" class="slogan">
             <div class="slogan-content">
-                <h2>七牛，缩短想法到产品的距离</h2>
-                <p>七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，使客户缩短了产品从个想法到上线的距离。</p>
+                <h2>{{videoData[0].desc_title}}</h2>
+                <p>{{{videoData[0].desc}}}</p>
             </div>
         </section>
         <section v-if="videoID == 1" class="slogan">
             <div class="slogan-content">
-                <h2>七牛 2017 校园招聘</h2>
-                <p>Hello World crazy Go
-                    <br>七牛期待你的加入</p>
+                <h2>{{videoData[1].desc_title}}</h2>
+                <p>{{{videoData[1].desc}}}</p>
             </div>
         </section>
         <div class="slide-container">
@@ -661,7 +660,9 @@
     <script src="js/vue-router.js"></script>
     <script src="js/compus-compon.js"></script>
     <script>
-        // 统一校招组件
+        /******************************************** 组件定义部分 *****************************************/
+
+        /* 统一校招文案组件 */
         var Unified = Vue.extend({
             template: '#unified',
             data: function() {
@@ -679,17 +680,17 @@
             }
         })
 
-        /* 提前批组件*/
+        /* 提前批文案组件 */
         var Advanced = Vue.extend({
             template: '#advanced'
         })
 
-        /*首页组件*/
+        /* 首页组件 */
         var Index = Vue.extend({
-                template: '#index'
-            })
-            /////////////////////////////////////////////////////////////////////////////////////////////////
-            //校招组件
+            template: '#index'
+        })
+
+        /* 校招职位列表组件 */
         var Campus = Vue.extend({
             template: '#campus',
             data: function() {
@@ -710,9 +711,7 @@
             }
         })
 
-
-
-        //技术 tab 招聘标签
+        /* 技术 tab 招聘标签 */
         var Tech = Vue.extend({
             template: '#tech',
             data: function() {
@@ -781,7 +780,7 @@
         })
 
 
-        /*详情组件*/
+        /* JD 详情组件 */
         //tech JD 详情
         var techJobDetail = Vue.extend({
             template: '#techjobDetail',
@@ -842,39 +841,39 @@
 
         //marketing JD 详情
         var functionJobDetail = Vue.extend({
-                template: '#functionjobDetail',
-                data: function() {
-                    return {
-                        msg: 'function 职位数据',
-                        jobInfo: jobInfo.function
-                    }
+            template: '#functionjobDetail',
+            data: function() {
+                return {
+                    msg: 'function 职位数据',
+                    jobInfo: jobInfo.function
                 }
-            })
-            /////////////////////////////////////////////////////////////////////////////////////////////////
+            }
+        })
 
-
+        /******************************************** 路由部分 *****************************************/
         /* 创建路由器  */
         var router = new VueRouter()
             // 默认路由
         router.redirect({
-                '/': '/index/advanced',
-                '/index': '/index/advanced',
-                '/campus': '/campus/tech'
-            })
-            /* 创建路由映射  */
+            '/': '/index/advanced',
+            '/index': '/index/advanced',
+            '/campus': '/campus/tech'
+        })
+
+        /* 创建路由映射  */
         router.map({
                 '/index': {
                     component: Index,
                     subRoutes: {
                         '/advanced': {
-                            // This component will be rendered into Foo's <router-view>
-                            // when /foo is matched. Using an inline component definition
+                            // This component will be rendered into Index's <router-view>
+                            // when /advanced is matched. Using an inline component definition
                             // here for convenience.
                             component: Advanced
                         },
                         '/unified': {
-                            // Bar will be rendered inside Foo's <router-view>
-                            // when /foo/bar is matched
+                            //  Unified will be rendered inside Index's <router-view>
+                            // when /index/unified is matched
                             component: Unified
                         }
                     }
@@ -935,7 +934,7 @@
                     }
                 }
             })
-            /* 启动路由  */
+            // 启动路由
         var CampusProcessTab = Vue.extend({})
         router.start(CampusProcessTab, '#campusJobView')
     </script>
@@ -1015,11 +1014,9 @@
             },
             methods: {
                 turn: function(i) {
-                    //首先是让now = 1
                     var now = this.currentIdx + i;
                     var textArray = this.textData;
                     // console.log(now)
-                    // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
                     if (now < 0) {
                         now = 0;
                         console.log("前面已经没有啦")
@@ -1044,11 +1041,9 @@
                     clearInterval(this.timer)
                 },
                 turnToPrev: function() {
-                    // this.pause(); //先关掉定时器 然后在turn()
                     this.turn(-1);
                 },
                 turnToNext: function() {
-                    // this.pause();
                     this.turn(1);
                 }
             },
@@ -1063,7 +1058,7 @@
         })
 
         /*****视频轮播组件****/
-        var Parent = Vue.extend({
+        var VideoCompon = Vue.extend({
                 template: '#video-slider',
                 components: {
                     'Modal': {
@@ -1116,21 +1111,21 @@
                         videoData: [{
                             id: '0',
                             name: 'video1',
-                            href: 'javascript:void(0)',
-                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4',
-                            poster: './img/campus/slider/Video-2.jpg',
-                            contentType: 'video/mp4',
-                            desc_title: '七牛，缩短想法到产品的距离',
-                            desc: '七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使客户缩短了产品从个想法到上线的距离。'
-                        }, {
-                            id: '1',
-                            name: 'video2',
-                            href: '#2',
+                            href: '#1',
                             src: 'http://7u2eut.com1.z0.glb.clouddn.com/HelloworldCrazygo.mp4',
                             poster: './img/campus/slider/Video-1.jpg',
                             contentType: 'video/mp4',
                             desc_title: '七牛 2017 校园招聘',
                             desc: 'Hello World, Crazy Go!<br>七牛，期待你的加入！'
+                        }, {
+                            id: '1',
+                            name: 'video2',
+                            href: '#2',
+                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4',
+                            poster: './img/campus/slider/Video-2.jpg',
+                            contentType: 'video/mp4',
+                            desc_title: '七牛，缩短想法到产品的距离',
+                            desc: '七牛人一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使客户缩短了产品从个想法到上线的距离。'
                         }],
                         styleObject: null,
                         videoID: 0,
@@ -1188,11 +1183,9 @@
                 },
                 methods: {
                     turn: function(i) {
-                        //首先是让now = 1
                         var now = this.currentIdx + i;
                         var videoArray = this.videoData;
                         // console.log(now)
-                        // 如果now == 0 说明是在第一张点击了一个向后的btn  {要么在第一张不动[此处选择0]， 要么返回第三张 --循环显示}
                         if (now < 0) {
                             now = 0;
                             console.log("前面已经没有啦")
@@ -1217,11 +1210,9 @@
                         clearInterval(this.timer)
                     },
                     turnToPrev: function() {
-                        // this.pause(); //先关掉定时器 然后在turn()
                         this.turn(-1);
                     },
                     turnToNext: function() {
-                        // this.pause();
                         this.turn(1);
                     },
                     play: function(videoId) {
@@ -1237,8 +1228,7 @@
                         this.showModal = true;
 
                         /* videojs 这坑先不填,后期自定义皮肤 */
-
-                        //     // this.turnToNext();
+                        // this.turnToNext();
                         // 是否显示播放 btn
                         // this.styleObject = videoId;
                         // 初始化播放器
@@ -1263,8 +1253,8 @@
                     }
                 }
             })
-            // 全局注册Parent组件
-        Vue.component('video-slider', Parent);
+            // 全局注册 VideoCompon 组件
+        Vue.component('video-slider', VideoCompon);
 
         var videoSlide = new Vue({
             el: '#video-container'

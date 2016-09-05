@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>社会招聘</title>
+    <meta name="viewport" content="width=1440px,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -51,27 +51,27 @@
                 </p>
                 <a href="#!/social/tech">查看社招岗位</a>
                 <ul class="job-list">
-                    <li class="job-item job-tech">
+                    <li v-link="{ path: '/social/tech'}" class="job-item job-tech">
                         <div class="job-img"></div>
                         <p class="job-desc">技术</p>
                     </li>
-                    <li class="job-item job-business">
+                    <li v-link="{ path: '/social/business'}" class="job-item job-business">
                         <div class="job-img"></div>
                         <p class="job-desc">业务</p>
                     </li>
-                    <li class="job-item job-product">
+                    <li v-link="{ path: '/social/product'}" class="job-item job-product">
                         <div class="job-img"></div>
                         <p class="job-desc">产品</p>
                     </li>
-                    <li class="job-item job-design">
+                    <li v-link="{ path: '/social/design'}" class="job-item job-design">
                         <div class="job-img"></div>
                         <p class="job-desc">设计</p>
                     </li>
-                    <li class="job-item job-marketing">
+                    <li v-link="{ path: '/social/marketing'}" class="job-item job-marketing">
                         <div class="job-img"></div>
                         <p class="job-desc">运营</p>
                     </li>
-                    <li class="job-item job-function">
+                    <li v-link="{ path: '/social/function'}" class="job-item job-function">
                         <div class="job-img"></div>
                         <p class="job-desc">职能</p>
                     </li>
@@ -463,7 +463,7 @@
 
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
-    <script src="js/compus-compon.js"></script>
+    <script src="js/social-compon.js"></script>
     <script type="text/javascript">
         /*首页组件*/
         var Index = Vue.extend({
