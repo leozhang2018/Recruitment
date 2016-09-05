@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>七牛招聘</title>
+    <title>七牛云招聘</title>
     <meta name="viewport" content="width=1440px,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="keywords" content="">
@@ -67,11 +67,11 @@
                 <ul class="clearfix slide-animate" v-bind:style='getClass'>
                     <li v-for="item in videoData" v-bind:current="current">
 
-                            <img  v-bind:src="item.poster" />
+                        <img v-bind:src="item.poster" />
 
                         <!--播放按钮-->
                         <div class="player_btn">
-                            <div class="player_pause" v-bind:id="item.id"  v-bind:class="styleObject == item.id ? 'notActive': 'Active'" v-on:click="play(item.id)"></div>
+                            <div class="player_pause" v-bind:id="item.id" v-bind:class="styleObject == item.id ? 'notActive': 'Active'" v-on:click="play(item.id)"></div>
                         </div>
                     </li>
                 </ul>
@@ -166,7 +166,7 @@
                             id: '0',
                             name: 'video1',
                             href: '#1',
-                            src: 'http://7u2eut.com1.z0.glb.clouddn.com/HelloworldCrazygo.mp4',
+                            src: 'http://7u2eut.com1.z0.glb.clouddn.com/Hello,world%21Crazy,go.mp4',
                             poster: './img/campus/slider/Video-1.jpg',
                             contentType: 'video/mp4',
                             desc_title: '七牛云 2017 校园招聘',
@@ -175,7 +175,7 @@
                             id: '1',
                             name: 'video2',
                             href: '#2',
-                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu-live.mp4',
+                            src: 'http://7xilik.com5.z0.glb.clouddn.com/qiniu.mp4',
                             poster: './img/campus/slider/Video-2.jpg',
                             contentType: 'video/mp4',
                             desc_title: '七牛，缩短想法到产品的距离',
@@ -189,8 +189,8 @@
                         playing: null,
                         stopPlayer: null,
                         hover: false,
-                        hoverObject:{
-                          opacity:0.1
+                        hoverObject: {
+                            opacity: 0.1
                         }
 
                     }

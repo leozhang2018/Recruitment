@@ -18,6 +18,7 @@ var LessAutoprefix = require('less-plugin-autoprefix')
 var paths = {
   img: 'src/img/**/!(PiLi-SDK_PxCook.png|9-layers.png)',
   style: 'src/less/*.less',
+  font:'src/less/*.ttf',
   script:'src/js/*.js',
   page: 'src/*.mustache',
   partials: 'src/partials/*.mustache'
@@ -64,6 +65,13 @@ gulp.task('script', function() {
     .pipe(gulp.dest('./dist/js'))
 })
 
+
+gulp.task('font', function() {
+  return gulp.src(paths.font, { base: 'src/less' })
+    .pipe(gulp.dest('./dist/css'))
+})
+
+
 gulp.task('page', function() {
   return gulp.src(paths.page, { base: 'src' })
     // .pipe(mustache())
@@ -84,7 +92,7 @@ gulp.task('watch', ['build'], function() {
 })
 
 gulp.task('build', ['clean'], function(cb) {
-  runSequence(['img', 'style','script', 'page'], cb)
+  runSequence(['img', 'style','script', 'page','font'], cb)
 })
 
 gulp.task('default', ['build'])
