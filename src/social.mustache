@@ -161,7 +161,7 @@
                         <a v-link="{ path: '/social/function'}">职能</a>
                     </li>
 
-                    <div class="dropdown">
+                    <div style="display:none" class="dropdown">
                         <span class="dropbtn">全部地点</span>
                         <span class="arrow"></span>
                         <div class="dropdown-content">
@@ -760,7 +760,6 @@
         var SocialProcessTab = Vue.extend({})
         router.start(SocialProcessTab, '#socialJobView')
     </script>
-
     <script type="text/javascript">
         // add event listener on load
         window.addEventListener('load', function() {
