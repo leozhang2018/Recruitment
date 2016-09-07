@@ -92,27 +92,27 @@
         <div class="job-wrap">
             <div class="campus-job-list">
                 <ul class="nav nav-tabs">
-                    <li v-if="jobInfo.tech.length" :class="currentPath == '/campus/tech' ? 'active': ''">
+                    <li :class="currentPath == '/campus/tech' ? 'active': ''">
                         <a v-link="{ path: '/campus/tech'}">技术</a>
                     </li>
 
-                    <li v-if="jobInfo.business.length" :class="currentPath == '/campus/business' ? 'active': ''">
+                    <li :class="currentPath == '/campus/business' ? 'active': ''">
                         <a v-link="{ path: '/campus/business'}">市场</a>
                     </li>
 
-                    <li v-if="jobInfo.product.length" :class="currentPath == '/campus/product' ? 'active': ''">
+                    <li :class="currentPath == '/campus/product' ? 'active': ''">
                         <a v-link="{ path: '/campus/product'}">产品</a>
                     </li>
 
-                    <li v-if="jobInfo.design.length" :class="currentPath == '/campus/design' ? 'active': ''">
+                    <li :class="currentPath == '/campus/design' ? 'active': ''">
                         <a v-link="{ path: '/campus/design'}">设计</a>
                     </li>
 
-                    <li v-if="jobInfo.marketing.length" :class="currentPath == '/campus/marketing' ? 'active': ''">
+                    <li :class="currentPath == '/campus/marketing' ? 'active': ''">
                         <a v-link="{ path: '/campus/marketing'}">销售</a>
                     </li>
 
-                    <li v-if="jobInfo.function.length" :class="currentPath == '/campus/function' ? 'active': ''">
+                    <li  :class="currentPath == '/campus/function' ? 'active': ''">
                         <a v-link="{ path: '/campus/function'}">职能</a>
                     </li>
 

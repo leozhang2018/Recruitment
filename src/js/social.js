@@ -1,6 +1,11 @@
 //首页组件
 var Index = Vue.extend({
-        template: '#index'
+        template: '#index',
+        data: function() {
+            return {
+                jobInfo: jobInfo
+            }
+        }
     })
     //社招组件
 var Social = Vue.extend({

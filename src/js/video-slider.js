@@ -6,7 +6,7 @@ var Parent = Vue.extend({
                 template: '#modal-template',
                 methods: {
                     close: function() {
-                        console.log("click close");
+                        // console.log("click close");
                         //关闭模态框
                         this.show = false;
                         // PlayID 置空
@@ -14,7 +14,7 @@ var Parent = Vue.extend({
                         // PlaySrc 置空
                         this.readyPlaySrc = '';
                         this.stopPlayer = true;
-                        console.log("stopPlayer 值:" + this.stopPlayer);
+                        // console.log("stopPlayer 值:" + this.stopPlayer);
                         //当前为利用异常停止
                     }
                 },
@@ -113,7 +113,7 @@ var Parent = Vue.extend({
                 },
                 set: function(currentVideoId) {
                     this.readyPlayId = currentVideoId;
-                    console.log("Set Video" + currentVideoId);
+                    // console.log("Set Video" + currentVideoId);
                 }
             },
             stopVideo: {
@@ -133,7 +133,7 @@ var Parent = Vue.extend({
                 // console.log(now)
                 if (now < 0) {
                     now = 0;
-                    console.log("前面已经没有啦")
+                    // console.log("前面已经没有啦")
                 }
                 //循环显示
                 if (now >= videoArray.length) {
@@ -142,14 +142,14 @@ var Parent = Vue.extend({
                 }
                 this.getClass = now;
                 this.currentIdx = now;
-                console.log("当前视频 ID :" + this.currentIdx);
+                // console.log("当前视频 ID :" + this.currentIdx);
             },
             autoPlay: function() {
                 var _that = this;
                 this.timer = setInterval(function() {
                     _that.turn(1)
                 }, 3000);
-                console.log("自动轮播中~")
+                // console.log("自动轮播中~")
             },
             pause: function() {
                 clearInterval(this.timer)
@@ -162,7 +162,7 @@ var Parent = Vue.extend({
             },
             play: function(videoId) {
                 var clickVideoName = this.videoData[videoId].name;
-                console.log("点击视频:" + videoId);
+                // console.log("点击视频:" + videoId);
                 //切换文字
                 this.videoID = videoId;
                 //设置 SRC

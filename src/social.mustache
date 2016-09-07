@@ -103,27 +103,27 @@
                 </p>
                 <a href="#!/social/tech">查看社招岗位</a>
                 <ul class="job-list">
-                    <li v-link="{ path: '/social/tech'}" class="job-item job-tech">
+                    <li v-link="{ path: '/social/tech'}"  class="job-item job-tech">
                         <div class="job-img"></div>
                         <p class="job-desc">技术</p>
                     </li>
-                    <li v-link="{ path: '/social/business'}" class="job-item job-business">
+                    <li v-link="{ path: '/social/business'}"  class="job-item job-business">
                         <div class="job-img"></div>
                         <p class="job-desc">市场</p>
                     </li>
-                    <li v-link="{ path: '/social/product'}" class="job-item job-product">
+                    <li v-link="{ path: '/social/product'}"  class="job-item job-product">
                         <div class="job-img"></div>
                         <p class="job-desc">产品</p>
                     </li>
-                    <li v-link="{ path: '/social/design'}" class="job-item job-design">
+                    <li v-link="{ path: '/social/design'}"  class="job-item job-design">
                         <div class="job-img"></div>
                         <p class="job-desc">设计</p>
                     </li>
-                    <li v-link="{ path: '/social/marketing'}" class="job-item job-marketing">
+                    <li v-link="{ path: '/social/marketing'}"  class="job-item job-marketing">
                         <div class="job-img"></div>
                         <p class="job-desc">销售</p>
                     </li>
-                    <li v-link="{ path: '/social/function'}" class="job-item job-function">
+                    <li v-link="{ path: '/social/function'}"  class="job-item job-function">
                         <div class="job-img"></div>
                         <p class="job-desc">职能</p>
                     </li>
@@ -136,27 +136,27 @@
         <div class="job-wrap">
             <div class="campus-job-list">
                 <ul class="nav nav-tabs">
-                    <li v-if="jobInfo.tech.length" :class="currentPath == '/social/tech' ? 'active': ''">
+                    <li  :class="currentPath == '/social/tech' ? 'active': ''">
                         <a v-link="{ path: '/social/tech'}">技术</a>
                     </li>
 
-                    <li v-if="jobInfo.business.length" :class="currentPath == '/social/business' ? 'active': ''">
+                    <li  :class="currentPath == '/social/business' ? 'active': ''">
                         <a v-link="{ path: '/social/business'}">市场</a>
                     </li>
 
-                    <li v-if="jobInfo.product.length" :class="currentPath == '/social/product' ? 'active': ''">
+                    <li :class="currentPath == '/social/product' ? 'active': ''">
                         <a v-link="{ path: '/social/product'}">产品</a>
                     </li>
 
-                    <li v-if="jobInfo.design.length" :class="currentPath == '/social/design' ? 'active': ''">
+                    <li  :class="currentPath == '/social/design' ? 'active': ''">
                         <a v-link="{ path: '/social/design'}">设计</a>
                     </li>
 
-                    <li v-if="jobInfo.marketing.length" :class="currentPath == '/social/marketing' ? 'active': ''">
+                    <li  :class="currentPath == '/social/marketing' ? 'active': ''">
                         <a v-link="{ path: '/social/marketing'}">销售</a>
                     </li>
 
-                    <li v-if="jobInfo.function.length" :class="currentPath == '/social/function' ? 'active': ''">
+                    <li  :class="currentPath == '/social/function' ? 'active': ''">
                         <a v-link="{ path: '/social/function'}">职能</a>
                     </li>
 
