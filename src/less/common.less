@@ -20,7 +20,7 @@ p {
 }
 body,
 html {
-    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", Arial, Verdana, sans-serif;
+    font-family: "Core Sans N 45 Regular","Core Sans N 55 Medium",'Helvetica Neue', Helvetica, "PingFang SC","Hiragino Sans GB","微软雅黑","Microsoft Yahei","WenQuanYi Micro Hei", Arial, Verdana, sans-serif !important;
 }
 .icon {
     display: inline-block;
@@ -57,6 +57,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
+    font-family: 'Core Sans N 55 Medium';
     //min-width: 960px;
     background-color: #fff;
     // border-bottom: 1px solid #e6e9f0;
@@ -79,16 +80,17 @@ body {
 .g-header .title {
     position: absolute;
     left: 57px;
-    top: 22px;
-    width: 36px;
-    height: 32px;
-    font-family: PingFangSC-Medium;
-    font-size: 18px;
-    font-weight: 500;
-    color: #333333;
-    letter-spacing: 0;
-    line-height: 32px;
+    top: 25px;
+    // width: 72px;
     // background-color: red;
+    a {
+        color: #333333;
+        height: 32px;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 32px;
+    }
 }
 @login-height: 40px;
 @login-content-height: @login-height - 1px * 2;
@@ -159,11 +161,12 @@ body {
 }
 .g-footer .g-container .icons-logo .f-icon-logo {
     display: block;
-    width: 93px;
+    width: 129px;
     height: 30px;
-    background-image: url("../img/footer/logo_footer.png");
+    background-image: url("../img/footer/Logo_footer.png");
     background-repeat: no-repeat;
-    background-size: 93px 30px;
+    background-size: 129px 30px;
+    // background-color: yellow;
 }
 .g-footer .g-container .webmap {
     width: 490px;
@@ -219,4 +222,3 @@ body {
     color: inherit;
     margin: 0 10px;
 }
-@import "./common-mobile.less";

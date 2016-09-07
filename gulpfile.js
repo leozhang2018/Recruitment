@@ -1,6 +1,6 @@
 /*
  * @file gulp file
- * @author nighca <nighca@live.cn>
+ * @author leozhang2018 <leozhang2018@gmail.com>
  */
 
 var gulp = require('gulp')
@@ -14,6 +14,8 @@ var imagemin = require('gulp-imagemin')
 var runSequence = require('run-sequence')
 var uglify = require('gulp-uglify')
 var LessAutoprefix = require('less-plugin-autoprefix')
+var rev = require('gulp-rev')
+var revCollector = require("gulp-rev-collector")
 
 var paths = {
   img: 'src/img/**/!(PiLi-SDK_PxCook.png|9-layers.png)',
@@ -24,8 +26,22 @@ var paths = {
   partials: 'src/partials/*.mustache'
 }
 
+var dist = {
+  img: 'dist/img/**',
+  style: 'dist/css/!(*.ttf)',
+  script:'dist/js/*.js',
+  page: 'dist/*.html',
+  font:'dist/css/*.ttf'
+}
+
+
 gulp.task('clean', function() {
   return gulp.src( 'dist/**', { read: false })
+    .pipe(rm())
+})
+
+gulp.task('deploy-clean', function() {
+  return gulp.src( 'deploy/**', { read: false })
     .pipe(rm())
 })
 
@@ -93,6 +109,45 @@ gulp.task('watch', ['build'], function() {
 
 gulp.task('build', ['clean'], function(cb) {
   runSequence(['img', 'style','script', 'page','font'], cb)
+})
+
+gulp.task('hashjs', function(){
+    return gulp.src(dist.script)
+        .pipe(rev())  //set hash key
+        .pipe(gulp.dest('./deploy/js/'))
+        .pipe(rev.manifest()) //set hash key json
+        .pipe(gulp.dest('./deploy/js/revJson')); //dest hash key json
+});
+
+gulp.task('hashcss', function(){
+    return gulp.src(dist.style)
+        .pipe(rev())  //set hash key
+        .pipe(gulp.dest('./deploy/css/'))
+        .pipe(rev.manifest()) //set hash key json
+        .pipe(gulp.dest('./deploy/css/revJson')); //dest hash key json
+});
+
+
+gulp.task('rev', function () {
+    return gulp.src(['./deploy/**/revJson/*.json', './dist/*html'])
+        .pipe( revCollector({
+            replaceReved: true,
+        }) )
+        .pipe( gulp.dest('./deploy') );
+});
+
+gulp.task('font-deploy', function() {
+  return gulp.src(dist.font, { base: 'dist/css' })
+    .pipe(gulp.dest('./deploy/css'))
+})
+
+gulp.task('img-deploy', function() {
+  return gulp.src(dist.img, { base: 'dist/img' })
+    .pipe(gulp.dest('./deploy/img'))
+})
+
+gulp.task('deploy', ['deploy-clean'], function(cb) {
+  runSequence(['hashjs', 'hashcss','font-deploy', 'img-deploy'],'rev', cb)
 })
 
 gulp.task('default', ['build'])
