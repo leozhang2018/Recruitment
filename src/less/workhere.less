@@ -2,47 +2,47 @@
  * @file style for workhere
  * @author leozhang2018 <leozhang2018@gmail.com>
  */
- @import "./common.less";
+@import "./common.less";
+
 .recruiting .pic-slide {
     width: 100%;
     height: 510px;
     // background-color: black;
     position: relative;
     overflow: hidden;
+
     .bg {
         height: 360px;
         background: #F5F5F5;
     }
+
     .slide-container {
+        transition: all 1s;
         position: relative;
-        height: 360px;
-        width: 1060px;
-        margin-left: auto;
-        margin-right: auto;
+        overflow: hidden;
         margin-top: -280px;
-        // background-color: #ff0;
+
         .slide-wrap {
-            width: 1300px;
+            width: 1060px;
             height: 360px;
-            overflow: hidden;
             position: relative;
-            top: 0;
-            left: 0;
-            // background-color: red;
+            margin: 0 auto;
             ul {
-                /*width:1920px;*/
                 position: absolute;
                 top: 0;
                 left: 0;
+
                 li {
                     list-style: none;
                     width: 640px;
                     height: 360px;
                     float: left;
                     padding-right: 20px;
+
                     a {
                         display: block;
                     }
+
                     img {
                         width: 640px;
                         height: 360px;
@@ -50,10 +50,12 @@
                     }
                 }
             }
+
             .slide-animate {
                 transition: all ease 0.5s;
             }
         }
+
         .pic-change-btn {
             margin: 30px auto 0;
             width: 1060px;
@@ -73,6 +75,7 @@
                 background-size: cover;
                 cursor: pointer;
             }
+
             .right {
                 width: 40px;
                 height: 40px;
@@ -82,25 +85,27 @@
                 background-size: cover;
                 cursor: pointer;
             }
-            .opacityClass{
-              opacity: 0.3;
-              pointer-events: none;
+
+            .opacityClass {
+                opacity: 0.3;
+                pointer-events: none;
             }
         }
-        .sliderClass {
-            width: 100%;
-        }
+
     }
+
     .sliderContainerClass {
         width: 100%;
     }
 }
+
 .recruiting .border-line {
     display: block;
     width: 100%;
     height: 1px;
     background-color: #E1E4EB;
 }
+
 .recruiting .learn-develop {
     .content();
     height: 1078px;
@@ -115,6 +120,7 @@
         left: 50%;
         margin-left: -530px;
         margin-top: -419px;
+
         .desc {
             width: 640px;
             height: 136px;
@@ -126,6 +132,7 @@
                 line-height: 30px;
                 // background-color: red;
             }
+
             h2 {
                 width: 640px;
                 margin-top: 20px;
@@ -136,6 +143,7 @@
                 // background-color: red;
             }
         }
+
         .feature-list {
             list-style: none;
             text-align: justify;
@@ -162,6 +170,7 @@
                     height: 0;
                     border-top: 2px solid #0099FF;
                 }
+
                 .feature-item-title {
                     font-size: 16px;
                     color: #333333;
@@ -171,6 +180,7 @@
                     margin-bottom: 20px;
                     // background-color: red;
                 }
+
                 .feature-item-desc {
                     font-family: PingFangSC-Regular;
                     font-size: 14px;
@@ -180,6 +190,7 @@
                     // background-color: blue;
                 }
             }
+
             .feature-item:nth-child(3),
             .feature-item:nth-child(6),
             .feature-item:nth-child(9) {
@@ -192,6 +203,7 @@
         }
     }
 }
+
 .recruiting .welfare {
     .content();
     height: 717px;
@@ -214,6 +226,7 @@
                 line-height: 30px;
                 // // background-color: red;
             }
+
             h2 {
                 width: 640px;
                 margin-top: 20px;
@@ -224,6 +237,7 @@
                 // background-color: red;
             }
         }
+
         .welfare-list {
             list-style: none;
             text-align: justify;
@@ -240,44 +254,54 @@
                 text-align: left;
                 position: relative;
                 background-color: white;
+
                 .welfare-icon {
                     display: inline-block;
                     width: 32px;
                     height: 32px;
                     // background-color: orange;
                 }
+
                 .gift {
                     background: url("../img/workhere/Present.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .awards {
                     background: url("../img/workhere/Reward.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .insurance {
                     background: url("../img/workhere/Insurance.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .snacks {
                     background: url("../img/workhere/Snacks.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .holiday {
                     background: url("../img/workhere/Medicare.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .flex {
                     background: url("../img/workhere/Flexible.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .year-holiday {
                     background: url("../img/workhere/Vocation.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .salary {
                     background: url("../img/workhere/Salary.png") no-repeat;
                     background-size: 100%;
                 }
+
                 .welfare-desc {
                     height: 56px;
                     width: 100px;
@@ -289,6 +313,7 @@
                     background-color: white;
                 }
             }
+
             .welfare-item:nth-child(6) {
                 margin-right: 0;
             }

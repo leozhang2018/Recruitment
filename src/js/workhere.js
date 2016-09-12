@@ -94,13 +94,7 @@ Vue.component('slider', {
                 } else {
                     this.last_pic = false;
                 }
-
-                if (currentIdx == 1) {
-                    this.currentLeft = -235 * currentIdx + 'px'
-
-                } else {
-                    this.currentLeft = -235 - 660 * (currentIdx - 1) + 'px'
-                }
+                this.currentLeft = - 660 * currentIdx + 'px'
             }
         }
     },
@@ -131,7 +125,7 @@ Vue.component('slider', {
             this.timer = setInterval(function() {
                 _that.turn(1)
             }, 3000);
-            console.log("自动轮播中~")
+            // console.log("自动轮播中~")
         },
         pause: function() {
             clearInterval(this.timer)

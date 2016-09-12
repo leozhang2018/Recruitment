@@ -5,7 +5,7 @@ Vue.component('text-slider', {
             currentIdx: 0,
             currentLeft: 0 + 'px',
             autoplay: false,
-            timer: null, 
+            timer: null,
             textData: [{
                 name: '马逸清',
                 job_title: '前端开发工程师',
@@ -87,14 +87,14 @@ Vue.component('text-slider', {
             }
             this.getClass = now;
             this.currentIdx = now;
-            console.log("当前区域 ID :" + this.currentIdx);
+            // console.log("当前区域 ID :" + this.currentIdx);
         },
         autoPlay: function() {
             var _that = this;
             this.timer = setInterval(function() {
                 _that.turn(1)
             }, 3000);
-            console.log("自动轮播中~")
+            // console.log("自动轮播中~")
         },
         pause: function() {
             clearInterval(this.timer)
@@ -132,7 +132,7 @@ var VideoCompon = Vue.extend({
                         // // // PlaySrc 置空
                         this.readyPlaySrc = '';
                         this.stopPlayer = true;
-                        console.log("stopPlayer 值:" + this.stopPlayer);
+                        // console.log("stopPlayer 值:" + this.stopPlayer);
                         //当前为利用异常停止
                     }
                 },
