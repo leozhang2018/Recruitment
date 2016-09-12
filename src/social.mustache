@@ -183,10 +183,13 @@
 
     <!-- 职位列表模板 -->
     <template id="tech">
-        <div class="job-title-content">
-            <h2>技术类</h2>
-            <h3>开放职位</h3>
-        </div>
+      <div v-if="tech.length == 0" class="job-not-open">
+          <h2>暂无开放职位</h2>
+      </div>
+      <div v-else class="job-title-content">
+          <h2>技术类</h2>
+          <h3>开放职位</h3>
+      </div>
         <div class="list-items">
             <dl v-link="{ name: 'techdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in tech" class="list-onejob campusJob">
                 <dt>{{ item.job_title }}</dt>
@@ -198,10 +201,14 @@
 
 
     <template id="business">
-        <div class="job-title-content">
-            <h2>市场类</h2>
-            <h3>开放职位</h3>
-        </div>
+      <div v-if="business.length == 0" class="job-not-open">
+          <h2>暂无开放职位</h2>
+      </div>
+      <div v-else class="job-title-content">
+          <h2>市场类</h2>
+          <h3>开放职位</h3>
+      </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'businessdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in business" class="list-onejob campusJob">
                 <dt>{{ item.job_title }}</dt>
@@ -212,10 +219,14 @@
     </template>
 
     <template id="product">
-        <div class="job-title-content">
-            <h2>产品类</h2>
-            <h3>开放职位</h3>
-        </div>
+      <div v-if="product.length == 0" class="job-not-open">
+          <h2>暂无开放职位</h2>
+      </div>
+      <div v-else class="job-title-content">
+          <h2>产品类</h2>
+          <h3>开放职位</h3>
+      </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'productdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in product" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -227,10 +238,14 @@
 
 
     <template id="design">
-        <div class="job-title-content">
-            <h2>设计类</h2>
-            <h3>开放职位</h3>
-        </div>
+      <div v-if="design.length == 0" class="job-not-open">
+          <h2>暂无开放职位</h2>
+      </div>
+      <div v-else class="job-title-content">
+          <h2>设计类</h2>
+          <h3>开放职位</h3>
+      </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'designdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in design" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -242,10 +257,14 @@
 
 
     <template id="marketing">
-        <div class="job-title-content">
-            <h2>销售类</h2>
-            <h3>开放职位</h3>
-        </div>
+      <div v-if="marketing.length == 0" class="job-not-open">
+          <h2>暂无开放职位</h2>
+      </div>
+      <div v-else class="job-title-content">
+          <h2>销售类</h2>
+          <h3>开放职位</h3>
+      </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'marketingdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in marketing" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -257,10 +276,13 @@
 
 
     <template id="jobfunction">
-        <div class="job-title-content">
-            <h2>职能类</h2>
-            <h3>开放职位</h3>
-        </div>
+      <div v-if="jobfunction.length == 0" class="job-not-open">
+          <h2>暂无开放职位</h2>
+      </div>
+      <div v-else class="job-title-content">
+          <h2>职能类</h2>
+          <h3>开放职位</h3>
+      </div>
         <div class="list-items">
             <dl v-link="{ name: 'jobfunctiondetail', params: {id: item.id,cate:item.job_title} }" v-for="item in jobfunction" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>

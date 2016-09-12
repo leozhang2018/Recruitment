@@ -35,7 +35,14 @@ var Campus = Vue.extend({
         return {
             msg: '校招组件',
             currentPath: '',
-            jobInfo: jobInfo
+            jobInfo: jobInfo,
+            keyWord: ''
+        }
+    },
+    methods: {
+        setKeyword: function(event) {
+            console.log(event.target.innerHTML);
+            this.keyWord = event.target.innerHTML;
         }
     },
     route: {
@@ -56,8 +63,7 @@ var Tech = Vue.extend({
         return {
             msg: '技术组件',
             currentPath: '',
-            tech: jobInfo.tech,
-
+            tech: jobInfo.tech
         }
     }
 })

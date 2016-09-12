@@ -119,12 +119,12 @@
                     <div style="display:none" class="dropdown">
                         <span class="dropbtn">全部地点</span>
                         <span class="arrow"></span>
-                        <div class="dropdown-content">
-                            <a href="#1">北京</a>
-                            <a href="#2">上海</a>
-                            <a href="#3">杭州</a>
-                            <a href="#4">广州</a>
-                            <a href="#4">深圳</a>
+                        <div  class="dropdown-content">
+                            <li v-on:click="setKeyword">北京</li>
+                          	<!-- <li v-on:click="setKeyword">上海</li>
+                          	<li v-on:click="setKeyword">杭州</li>
+                          	<li v-on:click="setKeyword">广州</li>
+                          	<li v-on:click="setKeyword">深圳</li> -->
                         </div>
 
                     </div>
@@ -139,12 +139,15 @@
 
     <!-- 职位列表模板 -->
     <template id="tech">
-        <div class="job-title-content">
+        <div v-if="tech.length == 0" class="job-not-open">
+            <h2>暂无开放职位</h2>
+        </div>
+        <div v-else class="job-title-content">
             <h2>技术类</h2>
             <h3>开放职位</h3>
         </div>
         <div class="list-items">
-            <dl v-link="{ name: 'techdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in tech" class="list-onejob campusJob">
+            <dl v-link="{ name: 'techdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in tech | filterBy keyWord in 'place'" class="list-onejob campusJob">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
@@ -154,7 +157,10 @@
 
 
     <template id="business">
-        <div class="job-title-content">
+        <div v-if="business.length == 0" class="job-not-open">
+            <h2>暂无开放职位</h2>
+        </div>
+        <div v-else class="job-title-content">
             <h2>市场类</h2>
             <h3>开放职位</h3>
         </div>
@@ -168,10 +174,14 @@
     </template>
 
     <template id="product">
-        <div class="job-title-content">
+        <div v-if="product.length == 0" class="job-not-open">
+            <h2>暂无开放职位</h2>
+        </div>
+        <div v-else class="job-title-content">
             <h2>产品类</h2>
             <h3>开放职位</h3>
         </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'productdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in product" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -183,10 +193,14 @@
 
 
     <template id="design">
-        <div class="job-title-content">
+        <div v-if="design.length == 0" class="job-not-open">
+            <h2>暂无开放职位</h2>
+        </div>
+        <div v-else class="job-title-content">
             <h2>设计类</h2>
             <h3>开放职位</h3>
         </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'designdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in design" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -198,10 +212,14 @@
 
 
     <template id="marketing">
-        <div class="job-title-content">
+        <div v-if="marketing.length == 0" class="job-not-open">
+            <h2>暂无开放职位</h2>
+        </div>
+        <div v-else class="job-title-content">
             <h2>销售类</h2>
             <h3>开放职位</h3>
         </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'marketingdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in marketing" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -213,10 +231,14 @@
 
 
     <template id="jobfunction">
-        <div class="job-title-content">
+        <div v-if="jobfunction.length == 0" class="job-not-open">
+            <h2>暂无开放职位</h2>
+        </div>
+        <div v-else class="job-title-content">
             <h2>职能类</h2>
             <h3>开放职位</h3>
         </div>
+
         <div class="list-items">
             <dl v-link="{ name: 'jobfunctiondetail', params: {id: item.id,cate:item.job_title} }" v-for="item in jobfunction" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
@@ -229,7 +251,6 @@
     <template id="social">
         <div>
             <h1>社会招聘</h1>
-            <p>This is the tutorial about vue-router.</p>
         </div>
     </template>
 
