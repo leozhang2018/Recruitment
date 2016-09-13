@@ -121,10 +121,10 @@
                         <span class="arrow"></span>
                         <div  class="dropdown-content">
                             <li v-on:click="setKeyword">北京</li>
-                          	<!-- <li v-on:click="setKeyword">上海</li>
+                          	<li v-on:click="setKeyword">上海</li>
                           	<li v-on:click="setKeyword">杭州</li>
                           	<li v-on:click="setKeyword">广州</li>
-                          	<li v-on:click="setKeyword">深圳</li> -->
+                          	<li v-on:click="setKeyword">深圳</li>
                         </div>
 
                     </div>
@@ -571,9 +571,15 @@
             <div class="journey-desc">
                 <div class="journey-desc-content">
                     <h2>宣讲行程</h2>
-                    <p>
-                        我们将会在上海、杭州、南京、合肥、北京、武汉、广州等城市进行校园宣讲会，具体时间待定，敬请期待。
-                    </p>
+                <ul class="city-list">
+                  <li :class="tabID == item.id ? 'active': ''" v-on:click="showDetails(item.id)" v-for="item in cityList" class="city">{{item.city}}</li>
+                </ul>
+                <span class="border-line"></span>
+                <div class="place-content">
+                  <h2 class="place">{{cityList[tabID].place}}</h2>
+                  <p class="time">{{cityList[tabID].time}}</p>
+                  <p class="room">{{cityList[tabID].room}}</p>
+                </div>
                 </div>
             </div>
         </section>

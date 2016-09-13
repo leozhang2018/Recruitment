@@ -25,7 +25,20 @@ var Advanced = Vue.extend({
 
 /* 首页组件 */
 var Index = Vue.extend({
-    template: '#index'
+    template: '#index',
+    data: function() {
+        return {
+            msg: '行程组件',
+            cityList: cityList,
+            tabID: 0,
+        }
+    },
+    methods: {
+        showDetails: function(tabID) {
+            this.tabID = Number(tabID);
+            console.log(tabID);
+        }
+    }
 })
 
 /* 校招职位列表组件 */
@@ -35,8 +48,7 @@ var Campus = Vue.extend({
         return {
             msg: '校招组件',
             currentPath: '',
-            jobInfo: jobInfo,
-            keyWord: ''
+            jobInfo: jobInfo
         }
     },
     methods: {
@@ -50,8 +62,6 @@ var Campus = Vue.extend({
             transition.next({
                 currentPath: transition.to.path
             })
-
-
         }
     }
 })
@@ -63,7 +73,8 @@ var Tech = Vue.extend({
         return {
             msg: '技术组件',
             currentPath: '',
-            tech: jobInfo.tech
+            tech: jobInfo.tech,
+            keyWord: ''
         }
     }
 })
