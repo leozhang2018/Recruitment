@@ -36,7 +36,7 @@ var Index = Vue.extend({
     methods: {
         showDetails: function(tabID) {
             this.tabID = Number(tabID);
-            console.log(tabID);
+            // console.log(tabID);
         }
     }
 })
