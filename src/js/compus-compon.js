@@ -179,7 +179,7 @@ var jobInfo = {
         ],
         "pro": ["fresh@qiniu.com"]
     }, {
-        "id": "1",
+        "id": "8",
         "job_title": "售前咨询工程师",
         "place": [
             "北京",
