@@ -256,7 +256,7 @@ var VideoCompon = Vue.extend({
                 }
                 this.getClass = now;
                 this.currentIdx = now;
-                console.log("当前视频 ID :" + this.currentIdx);
+                // console.log("当前视频 ID :" + this.currentIdx);
             },
             autoPlay: function() {
                 var _that = this;
