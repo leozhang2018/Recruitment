@@ -263,7 +263,7 @@ var VideoCompon = Vue.extend({
                 this.timer = setInterval(function() {
                     _that.turn(1)
                 }, 3000);
-                console.log("自动轮播中~")
+                // console.log("自动轮播中~")
             },
             pause: function() {
                 clearInterval(this.timer)
@@ -276,7 +276,7 @@ var VideoCompon = Vue.extend({
             },
             play: function(videoId) {
                 var clickVideoName = this.videoData[videoId].name;
-                console.log("点击视频:" + videoId);
+                // console.log("点击视频:" + videoId);
                 //切换文字
                 this.videoID = videoId;
                 //设置 SRC
