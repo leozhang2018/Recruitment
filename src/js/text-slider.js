@@ -247,7 +247,7 @@ var VideoCompon = Vue.extend({
                 // console.log(now)
                 if (now < 0) {
                     now = 0;
-                    console.log("前面已经没有啦")
+                    // console.log("前面已经没有啦")
                 }
                 //循环显示
                 if (now >= videoArray.length) {
