@@ -53,7 +53,7 @@ var Parent = Vue.extend({
                     id: '0',
                     name: 'video1',
                     href: '#1',
-                    src: 'http://7u2eut.com1.z0.glb.clouddn.com/Hello,world%21Crazy,go.mp4',
+                    src: 'http://career.qiniu.com/Hello,world!Crazy,go.mp4',
                     poster: './img/campus/slider/Video-1.jpg',
                     contentType: 'video/mp4',
                     desc_title: '七牛云 2017 校园招聘',
