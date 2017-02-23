@@ -226,7 +226,7 @@
           <h3>开放职位</h3>
       </div>
         <div class="list-items">
-            <dl v-link="{ name: 'techdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in tech" class="list-onejob campusJob">
+            <dl v-link="{ name: 'techdetail', params: {id: $index,cate:item.job_title} }" v-for="item in tech" class="list-onejob campusJob">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
@@ -245,7 +245,7 @@
       </div>
 
         <div class="list-items">
-            <dl v-link="{ name: 'businessdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in business" class="list-onejob campusJob">
+            <dl v-link="{ name: 'businessdetail', params: {id: $index,cate:item.job_title} }" v-for="item in business" class="list-onejob campusJob">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
@@ -263,7 +263,7 @@
       </div>
 
         <div class="list-items">
-            <dl v-link="{ name: 'productdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in product" class="list-onejob campusJob" data-id="6518">
+            <dl v-link="{ name: 'productdetail', params: {id: $index,cate:item.job_title} }" v-for="item in product" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
@@ -282,7 +282,7 @@
       </div>
 
         <div class="list-items">
-            <dl v-link="{ name: 'designdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in design" class="list-onejob campusJob" data-id="6518">
+            <dl v-link="{ name: 'designdetail', params: {id: $index,cate:item.job_title} }" v-for="item in design" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
@@ -301,7 +301,7 @@
       </div>
 
         <div class="list-items">
-            <dl v-link="{ name: 'marketingdetail', params: {id: item.id,cate:item.job_title} }" v-for="item in marketing" class="list-onejob campusJob" data-id="6518">
+            <dl v-link="{ name: 'marketingdetail', params: {id: $index,cate:item.job_title} }" v-for="item in marketing" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
@@ -319,7 +319,7 @@
           <h3>开放职位</h3>
       </div>
         <div class="list-items">
-            <dl v-link="{ name: 'jobfunctiondetail', params: {id: item.id,cate:item.job_title} }" v-for="item in jobfunction" class="list-onejob campusJob" data-id="6518">
+            <dl v-link="{ name: 'jobfunctiondetail', params: {id: $index,cate:item.job_title} }" v-for="item in jobfunction" class="list-onejob campusJob" data-id="6518">
                 <dt>{{ item.job_title }}</dt>
                 <dd class="place">{{ item.place }}</dd>
                 <dd class="pubdate">发布日期：{{ item.time }}</dd>
