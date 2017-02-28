@@ -11,15 +11,22 @@ npm i gulp -g
 npm i
 ```
 
-* build
-
-```shell
-gulp 
-```
-
 * watch
 
 ```shell
 gulp watch
 ```
+
+* build dist
+
+```shell
+gulp build
+```
+
+* build deploy
+
+```shell
+gulp deploy
+```
+
 
