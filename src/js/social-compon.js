@@ -22,7 +22,7 @@ var jobInfo = {
             "hr@qiniu.com"
         ]
     }, {
-        "job_title": "P2P资深技术专家",
+        "job_title": "P2P 资深技术专家",
         "place": [
             "上海"
         ],
@@ -276,7 +276,7 @@ var jobInfo = {
             "hr@qiniu.com"
         ]
     }, {
-        "job_title": "CDN运维开发工程师 SRE",
+        "job_title": "CDN 运维开发工程师 SRE",
         "place": [
             "北京"
         ],
@@ -389,7 +389,7 @@ var jobInfo = {
             "hr@qiniu.com"
         ]
     }, {
-        "job_title": "web 后端开发工程师 ",
+        "job_title": "Web 后端开发工程师 ",
         "place": [
             "上海"
         ],
@@ -638,7 +638,7 @@ var jobInfo = {
         "time": "2017/02/23",
         "duty": [
             "负责公司云存储，直播云等产品的技术支持工作，包括产品对接，性能优化，架构咨询",
-            "负责公司云存储 iOS SDK 的维护和改进， 直播推流sdk， 播放sdk等对接",
+            "负责公司云存储 iOS SDK 的维护和改进， 直播推流 SDK， 播放 SDK 等对接",
             "参与改善公司技术服务流程，参与开发客户服务内部系统工具"
         ],
         "requirements": [
@@ -646,6 +646,28 @@ var jobInfo = {
             "至少熟悉一门服务端或者客户端编程语言如 Golang/Python/PHP/Ruby/Java/Objective-C 等",
             "对流媒体开发有一定了解",
             "热爱分享，较好的文档写作能力"
+        ],
+        "pro": [
+            "hr@qiniu.com"
+        ]
+    }, {
+        "job_title": "全栈人工智能产品研发工程师",
+        "place": [
+            "上海"
+        ],
+        "time": "2017/02/23",
+        "duty": [
+            "开发七牛人工智能产品的前后端云系统",
+            "开发和维护线上人工智能产品的日志和监控系统",
+            "评估线上人工智能产品的性能",
+            "优化人工智能产品的架构和基础组件"
+        ],
+        "requirements": [
+            "熟悉 Web 后端 Linux 开发技能，计算机基础知识扎实，对数据结构，网络原理，操作系统有较好的掌握",
+            "精通 Golang, C/C++， Python 其中的至少一门语言",
+            "有前端设计和开发经验，Vue.js, Angular.js, React 等框架熟悉者更佳",
+            "对数据库系统 MySQL,MongoDB 有深入研究的优先", "热爱编程，有很好的编程与Debug能力, 有很好的团队沟通和产品思维",
+            "Fast Learners more than experts，七牛不关注你的背景，但是你要有快速学习的能力，宽泛的技术视野，创造性思维，富有想象力，有推进人工智能的理想和使命感"
         ],
         "pro": [
             "hr@qiniu.com"
