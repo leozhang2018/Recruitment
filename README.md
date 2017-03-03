@@ -1,32 +1,21 @@
-# 招聘独立子站
+# career-site
 
-招聘独立子站页面
+> qiniu career website
 
-### develop
+## Build Setup
 
-* install
+``` bash
+# install dependencies
+npm install
 
-```shell
-npm i gulp -g
-npm i
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
 ```
 
-* watch
-
-```shell
-gulp watch
-```
-
-* build dist
-
-```shell
-gulp build
-```
-
-* build deploy
-
-```shell
-gulp deploy
-```
-
-
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
